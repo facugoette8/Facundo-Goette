@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Facu · Walking Tours, Streams y Clases con IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #020617;
+      --border: #1e293b;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --radius: 16px;
+      --max-width: 960px;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      background: rgba(15,23,42,0.96);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: #d1d5db;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(15,23,42,0.9);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 2.6vw, 2.4rem);
+      margin: 0 0 0.7rem;
+      font-weight: 600;
+    }
+
+    .hero-text {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.85);
+      cursor: pointer;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 0.9rem;
+    }
+
+    .section-header h2 {
+      margin: 0 0 0.2rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .section-header p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: #cbd5f5;
+      max-width: 34rem;
+    }
+
+    .card-grid-3,
+    .card-grid-2 {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.95);
+      padding: 0.9rem;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 120px;
+    }
+
+    .card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .card p {
+      margin: 0 0 0.4rem;
+      color: #e5e7eb;
+    }
+
+    .card small {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+      background: rgba(15,23,42,0.96);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .card-grid-3,
+      .card-grid-2 { grid-template-columns: minmax(0, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV SUPERIOR -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-tag">Facu</span>
+        <span class="brand-sub">Walking tours · Streams · Clases con IA</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#walking">🚶 Walking tours</a>
+        <a href="#streams">🎙️ Streams / Reflexiones</a>
+        <a href="#clases">📚 Clases online + IA</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="hero">
+      <div class="badge">Blog personal · Proyecto vivo</div>
+      <h1>
+        <!-- EDITA ESTE TÍTULO -->
+        Caminar ciudades, pensar en voz alta y aprender con IA.
+      </h1>
+      <p class="hero-text">
+        <!-- EDITA ESTE PÁRRAFO -->
+        Este sitio es mi bitácora pública: walking tours, reflexiones en formato stream
+        y clases online donde experimento con IA como copiloto. Todo está en construcción
+        y la idea es mostrar el proceso, no la perfección.
+      </p>
+
+      <div class="hero-tags">
+        <a class="chip" href="#walking">🚶 Ver walking tours</a>
+        <a class="chip" href="#streams">🎙️ Ir a streams</a>
+        <a class="chip" href="#clases">📚 Ver clases online</a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 1: WALKING TOURS -->
+    <section id="walking">
+      <div class="section-header">
+        <h2>🚶 Walking tours</h2>
+        <p>
+          <!-- EDITA DESCRIPCIÓN GENERAL -->
+          Caminatas comentadas por la ciudad: historias pequeñas, detalles que se suelen pasar
+          de largo y mi forma de mirar el mundo mientras camino.
+        </p>
+      </div>
+
+      <div class="card-grid-3">
+        <article class="card">
+          <h3>
+            <!-- EJEMPLO: EDITA CIUDAD/RECORRIDO -->
+            [Ciudad] · Primera caminata
+          </h3>
+          <p>
+            <!-- EDITA TEXTO -->
+            Acá va la descripción de tu primer walking tour: qué zona recorrés,
+            qué buscas mostrar y por qué te parece interesante.
+          </p>
+          <small>
+            <!-- MÁS ADELANTE: LINK A VIDEO / MAPA -->
+            Próximamente: enlace a video o mapa del recorrido.
+          </small>
+        </article>
+
+        <article class="card">
+          <h3>Serie de barrios</h3>
+          <p>
+            Reserva este espacio para una serie de recorridos por barrios con identidad propia
+            y anécdotas personales.
+          </p>
+          <small>Idea en exploración.</small>
+        </article>
+
+        <article class="card">
+          <h3>Walking tours con comunidad</h3>
+          <p>
+            Futuro espacio para coordinar caminatas con gente que siga el contenido y quiera
+            sumarse a caminar y conversar.
+          </p>
+          <small>Formato por definir.</small>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: STREAMS / REFLEXIONES -->
+    <section id="streams">
+      <div class="section-header">
+        <h2>🎙️ Streams / Reflexiones en vivo</h2>
+        <p>
+          <!-- EDITA DESCRIPCIÓN GENERAL -->
+          Videos cortos donde pienso en voz alta sobre trabajo, creatividad, tecnología
+          y cómo mezclo todo eso con mi vida cotidiana.
+        </p>
+      </div>
+
+      <div class="card-grid-2">
+        <article class="card">
+          <h3>Canal principal</h3>
+          <p>
+            <!-- SI TIENES CANAL, EDITA Y PON LINK -->
+            Acá iría el enlace a tu canal o playlist principal (YouTube, Twitch u otra plataforma).
+          </p>
+          <small>
+            Ejemplo: <a href="#" target="_blank">youtube.com/@tunombre</a>
+          </small>
+        </article>
+
+        <article class="card">
+          <h3>Qué busco con estos streams</h3>
+          <p>
+            <!-- ESCRIBE TU INTENCIÓN -->
+            Más que contenido perfecto, quiero registrar procesos, dudas y cambios reales en el tiempo.
+            A veces en español, a veces en inglés, siempre en modo crudo.
+          </p>
+          <small>Errores incluidos a propósito: parte del aprendizaje.</small>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: CLASES ONLINE + IA -->
+    <section id="clases">
+      <div class="section-header">
+        <h2>📚 Clases online con IA como copiloto</h2>
+        <p>
+          <!-- EDITA DESCRIPCIÓN GENERAL -->
+          Sesiones donde enseño lo que voy aprendiendo (datos, herramientas digitales, productividad, etc.)
+          usando IA en vivo como parte de la clase.
+        </p>
+      </div>
+
+      <div class="card-grid-3">
+        <article class="card">
+          <h3>Mini-clases grabadas</h3>
+          <p>
+            Espacio para cápsulas cortas de 10–20 minutos sobre temas concretos
+            (por ejemplo, flujos de datos, uso básico de IA en el día a día, etc.).
+          </p>
+          <small>Pendiente: grabar la primera mini-clase.</small>
+        </article>
+
+        <article class="card">
+          <h3>Talleres en vivo</h3>
+          <p>
+            Futuro espacio para anunciar talleres en vivo donde la gente pueda participar
+            y hacer preguntas mientras trabajamos con IA.
+          </p>
+          <small>Formato en diseño.</small>
+        </article>
+
+        <article class="card">
+          <h3>Cómo usamos la IA acá</h3>
+          <p>
+            Bloque para explicar con transparencia qué partes de la clase salen de IA,
+            cuáles preparo yo y cómo se combinan.
+          </p>
+          <small>Manifiesto en borrador.</small>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <!-- PUEDES EDITAR AÑO --> 2025 Facu · Sitio en construcción permanente.
+  </footer>
+</body>
+</html>
