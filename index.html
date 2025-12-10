@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <title>Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
+   <style>
     :root {
-      --bg: #020617;
-      --bg-card: #020617;
-      --border: #1e293b;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.15);
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
       --radius: 16px;
       --max-width: 960px;
       --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -23,8 +23,8 @@
     body {
       margin: 0;
       font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
-      color: var(--text);
+      background: var(--bg);      /* Fondo blanco */
+      color: var(--text);         /* Texto oscuro */
       -webkit-font-smoothing: antialiased;
       scroll-behavior: smooth;
     }
@@ -36,8 +36,8 @@
       top: 0;
       z-index: 10;
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(14px);
-      background: rgba(15,23,42,0.96);
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.92);
     }
 
     .nav-inner {
@@ -65,7 +65,7 @@
 
     .brand-sub {
       font-size: 0.8rem;
-      color: #d1d5db;
+      color: #4b5563;
     }
 
     .nav-links {
@@ -84,7 +84,7 @@
     .nav-links a:hover {
       color: var(--text);
       border-color: var(--border);
-      background: rgba(15,23,42,0.9);
+      background: #f3f4f6;
     }
 
     main {
@@ -109,11 +109,12 @@
       font-size: clamp(1.9rem, 2.6vw, 2.4rem);
       margin: 0 0 0.7rem;
       font-weight: 600;
+      color: #111827;
     }
 
     .hero-text {
       font-size: 0.95rem;
-      color: #cbd5f5;
+      color: #374151;
       margin-bottom: 1rem;
       line-height: 1.6;
     }
@@ -129,14 +130,16 @@
       font-size: 0.75rem;
       padding: 0.45rem 0.9rem;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15,23,42,0.85);
+      border: 1px solid #111827;
+      background: #111827;
+      color: #ffffff;
       cursor: pointer;
     }
 
     .chip:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
+      border-color: #111827;
+      background: #111827;
+      opacity: 0.9;
     }
 
     section {
@@ -151,12 +154,13 @@
       margin: 0 0 0.2rem;
       font-size: 1.25rem;
       font-weight: 600;
+      color: #111827;
     }
 
     .section-header p {
       margin: 0;
       font-size: 0.86rem;
-      color: #cbd5f5;
+      color: #4b5563;
       max-width: 34rem;
     }
 
@@ -172,7 +176,7 @@
     .card {
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.95);
+      background: var(--bg-card);
       padding: 0.9rem;
       font-size: 0.8rem;
       display: flex;
@@ -184,11 +188,12 @@
     .card h3 {
       margin: 0 0 0.3rem;
       font-size: 0.9rem;
+      color: #111827;
     }
 
     .card p {
       margin: 0 0 0.4rem;
-      color: #e5e7eb;
+      color: #374151;
     }
 
     .card small {
@@ -204,7 +209,7 @@
       font-size: 0.7rem;
       color: var(--muted);
       text-align: center;
-      background: rgba(15,23,42,0.96);
+      background: #f9fafb;
     }
 
     @media (max-width: 768px) {
@@ -213,6 +218,7 @@
       .card-grid-2 { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
+
 </head>
 <body>
   <!-- NAV SUPERIOR -->
@@ -380,6 +386,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
