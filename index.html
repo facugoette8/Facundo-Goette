@@ -6,8 +6,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Facundo Goette: walking tours, reflexiones en video y clases online con IA.">
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Fondo con foto + efecto glass + parallax -->
+  <style>
+    body { background: transparent !important; }
+
+    .page-bg,
+    .page-bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .page-bg {
+      z-index: -2;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+
+      /* Fallback */
+      background-image: url("bg.jpg");
+
+      /* Preferencia: WebP + 2x */
+      background-image: image-set(
+        url("bg.webp") type("image/webp") 1x,
+        url("bg@2x.webp") type("image/webp") 2x,
+        url("bg.jpg") type("image/jpeg") 1x,
+        url("bg@2x.jpg") type("image/jpeg") 2x
+      );
+
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+    }
+
+    .page-bg-overlay {
+      z-index: -1;
+      background: rgba(255, 255, 255, 0.32);
+    }
+
+    /* “Glass” para que se vea la foto detrás */
+    .header {
+      background: rgba(255, 255, 255, 0.72) !important;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      background: rgba(255, 255, 255, 0.68) !important;
+      backdrop-filter: blur(12px);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.74) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    .section--soft {
+      background: rgba(249, 250, 251, 0.52) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-bg { transform: none !important; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -29,9 +97,7 @@
     <section class="hero">
       <div class="hero__badge">Proyecto vivo · Blog personal</div>
       <h1 class="hero__title">Caminar ciudades; aprender y enseñar.</h1>
-      <p class="hero__lead">
-        Walking tours, reflexiones en video y clases prácticas.
-      </p>
+      <p class="hero__lead">Walking tours, reflexiones en video y clases prácticas.</p>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="walking.html">🚶 Walking tours</a>
@@ -74,7 +140,6 @@
       </div>
     </section>
 
-    <!-- YOUTUBE: 2 videos fijos -->
     <section class="section section--soft">
       <div class="section__header">
         <h2 class="section__title">YouTube</h2>
@@ -92,9 +157,9 @@
               src="https://www.youtube.com/embed/dikCAOnpZBc"
               title="Emigrar: 3 años lejos de casa"
               frameborder="0"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+              allowfullscreen></iframe>
           </div>
 
           <div class="card__actions">
@@ -111,11 +176,11 @@
               width="100%"
               height="315"
               src="https://www.youtube.com/embed/5RtOo4CuIRo"
-              title="YouTube video 2"
+              title="MILAN 4K Walking Tour"
               frameborder="0"
+              loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen>
-            </iframe>
+              allowfullscreen></iframe>
           </div>
 
           <div class="card__actions">
@@ -138,8 +203,29 @@
       <div class="footer__links">
         <a class="link" href="contacto.html">Contacto</a>
         <span class="dot">·</span>
+        <a class="link" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">YouTube</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const speed = 0.12;   // menor = más sutil
+      const max = 220;      // límite px
+
+      const onScroll = () => {
+        const y = window.scrollY || 0;
+        const offset = Math.max(-max, -y * speed); // al bajar, “recorrés” la foto hacia abajo
+        bg.style.transform = `translate3d(0, ${offset}px, 0)`;
+      };
+
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
+  </script>
 </body>
 </html>
-
