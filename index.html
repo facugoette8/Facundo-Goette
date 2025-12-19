@@ -59,6 +59,8 @@
         <article class="card">
           <h3 class="card__title">🎙️ Reflexiones</h3>
           <p class="card__text">Streams: sin maquillaje.</p>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="streams.html">Ver reflexiones</a>
           </div>
         </article>
 
@@ -73,26 +75,44 @@
       </div>
     </section>
 
+    <!-- CANAL DE YOUTUBE: reemplazado por "últimos videos" (se actualiza solo con uploads) -->
     <section class="section section--soft">
       <div class="section__header">
-        <h2 class="section__title">Canal de YouTube</h2>
-        <p class="section__subtitle">No te pierdas de nada.</p>
+        <h2 class="section__title">Últimos videos en YouTube</h2>
+        <p class="section__subtitle">Se actualiza automáticamente con los uploads del canal.</p>
       </div>
 
       <div class="grid2">
         <article class="card">
-          <h3 class="card__title">Último walking tour</h3>
-          <p class="card__text">Rosario · Bulevares y cafés de barrio (próximamente video + mapa).</p>
+          <h3 class="card__title">Reproductor (Uploads)</h3>
+          <p class="card__text">Acá aparecen los últimos videos subidos al canal.</p>
+
+          <div style="margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/videoseries?list=UUhvfTDMBJPXMCy3DOrtClPw"
+              title="Últimos videos - Facundo Goette"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
           <div class="card__actions">
-            <a class="btn" href="walking.html">Ir a walking</a>
+            <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">Abrir canal</a>
+            <a class="btn btn--ghost" href="streams.html">Ir a Reflexiones</a>
           </div>
         </article>
 
         <article class="card">
-          <h3 class="card__title">Próximo stream</h3>
-          <p class="card__text">Tema: decisiones, hábitos y enfoque (sin edición).</p>
+          <h3 class="card__title">Suscribite / Seguir</h3>
+          <p class="card__text">Si querés recibir los nuevos videos apenas salen, suscribite al canal.</p>
+          <div class="card__meta">Handle: @facugoette8</div>
+
           <div class="card__actions">
-            <a class="btn" href="streams.html">Ir a reflexiones</a>
+            <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
+            <a class="btn" href="contacto.html">Contacto</a>
           </div>
         </article>
       </div>
@@ -104,7 +124,7 @@
       <div>© 2025 Facundo Goette</div>
       <div class="footer__links">
         <a class="link" href="contacto.html">Contacto</a>
-        <span class="dot">·</span>
+      </div>
     </div>
   </footer>
 </body>
