@@ -7,9 +7,8 @@
   <meta name="description" content="Facundo Goette: walking tours, reflexiones en video y clases online con IA.">
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Fondo con foto + efecto glass + parallax -->
   <style>
-    body { background: transparent !important; }
+    html, body { background: transparent !important; }
 
     .page-bg,
     .page-bg-overlay {
@@ -26,14 +25,14 @@
       background-repeat: no-repeat;
 
       /* Fallback */
-      background-image: url("bg.jpg");
+      background-image: url("site-bg.jpg");
 
       /* Preferencia: WebP + 2x */
       background-image: image-set(
-        url("bg.webp") type("image/webp") 1x,
-        url("bg@2x.webp") type("image/webp") 2x,
-        url("bg.jpg") type("image/jpeg") 1x,
-        url("bg@2x.jpg") type("image/jpeg") 2x
+        url("site-bg.webp") type("image/webp") 1x,
+        url("site-bg@2x.webp") type("image/webp") 2x,
+        url("site-bg.jpg") type("image/jpeg") 1x,
+        url("site-bg@2x.jpg") type("image/jpeg") 2x
       );
 
       transform: translate3d(0, 0, 0);
@@ -42,25 +41,22 @@
 
     .page-bg-overlay {
       z-index: -1;
-      background: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.30);
     }
 
-    /* “Glass” para que se vea la foto detrás */
+    /* Glass para que se vea la foto detrás */
     .header {
       background: rgba(255, 255, 255, 0.72) !important;
       backdrop-filter: blur(12px);
     }
-
     .hero {
       background: rgba(255, 255, 255, 0.68) !important;
       backdrop-filter: blur(12px);
     }
-
     .card {
       background: rgba(255, 255, 255, 0.74) !important;
       backdrop-filter: blur(10px);
     }
-
     .section--soft {
       background: rgba(249, 250, 251, 0.52) !important;
       backdrop-filter: blur(10px);
@@ -214,12 +210,12 @@
       if (!bg) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-      const speed = 0.12;   // menor = más sutil
-      const max = 220;      // límite px
+      const speed = 0.12; // sutil
+      const max = 240;    // límite px
 
       const onScroll = () => {
         const y = window.scrollY || 0;
-        const offset = Math.max(-max, -y * speed); // al bajar, “recorrés” la foto hacia abajo
+        const offset = Math.max(-max, -y * speed);
         bg.style.transform = `translate3d(0, ${offset}px, 0)`;
       };
 
