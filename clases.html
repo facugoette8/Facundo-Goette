@@ -4,10 +4,111 @@
   <meta charset="UTF-8" />
   <title>Clases · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Clases online de Facundo Goette: sesiones prácticas usando IA como copiloto.">
+  <meta name="description" content="Clases personalizadas con Facundo Goette: datos, herramientas digitales y productividad con IA. Agenda una consulta gratuita." />
+  <link rel="canonical" href="https://facugoette8.github.io/clases.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Facundo Goette" />
+  <meta property="og:url" content="https://facugoette8.github.io/clases.html" />
+  <meta property="og:title" content="Clases · Facundo Goette" />
+  <meta property="og:description" content="Clases personalizadas (contenido, ritmo y forma). Agenda una consulta gratuita." />
+  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Clases · Facundo Goette" />
+  <meta name="twitter:description" content="Clases personalizadas (contenido, ritmo y forma). Agenda una consulta gratuita." />
+  <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    html, body { background: transparent !important; }
+
+    /* Fondo */
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .page-bg {
+      z-index: -2;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 5%;
+      background-color: #ffffff;
+      background-image: url("site-bg.jpg");
+      background-image: image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
+      will-change: background-position;
+    }
+    .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
+
+    /* Cristal */
+    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
+    .hero, .card { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
+
+    /* Compacto similar a Inicio */
+    body { font-size: 14px; }
+    .hero { padding: 1rem !important; }
+    .card { padding: .85rem !important; }
+    .btn  { padding: .46rem .8rem !important; font-size: .88rem !important; }
+    .section__title { font-size: 1.08rem !important; }
+    .section__subtitle { font-size: .88rem !important; }
+
+    /* Booking */
+    .booking-grid { display:grid; grid-template-columns: 430px 1fr; gap:1rem; align-items:start; }
+    @media (max-width: 980px){ .booking-grid { grid-template-columns: 1fr; } }
+
+    .booking-picker {
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+    }
+    .booking-picker .calendly-inline-widget { height: 520px !important; }
+
+    .booking-pitch {
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      padding: 1rem;
+    }
+    .booking-pitch h2, .booking-pitch h3 { margin:0 0 .4rem; }
+    .booking-pitch p { margin:.35rem 0; color:#374151; line-height:1.55; }
+
+    .pitch-spot {
+      margin-top:.75rem;
+      padding:.9rem;
+      border-radius:14px;
+      border:1px solid rgba(37,99,235,.22);
+      background: rgba(37,99,235,.06);
+    }
+    .pitch-spot strong { display:block; margin-bottom:.25rem; }
+    .pitch-spot small { color: var(--muted); }
+
+    /* Lists */
+    .bullets { margin:.6rem 0 0; padding-left: 1.05rem; color:#374151; }
+    .bullets li { margin:.25rem 0; }
+
+    /* Cards grids */
+    .grid3 { display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid2 { display:grid; gap:1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 900px){ .grid3, .grid2 { grid-template-columns: minmax(0, 1fr); } }
+
+    .tagline { color: var(--muted); font-size: .86rem; margin-top:.15rem; }
+
+    /* FAQ */
+    details {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: .75rem .85rem;
+      background: rgba(255,255,255,.68);
+    }
+    details + details { margin-top: .6rem; }
+    summary { cursor: pointer; font-weight: 600; color: #111827; }
+    details p { margin: .55rem 0 0; color:#374151; line-height:1.55; }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -27,63 +128,133 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero__badge">Clases</div>
-      <h1 class="hero__title">Clases prácticas con IA como copiloto</h1>
+      <div class="hero__badge" style="display:none;">Clases</div>
+      <h1 class="hero__title">Clases personalizadas (con IA como copiloto)</h1>
       <p class="hero__lead">
-        Formato simple: venís con un problema real, armamos un sistema/flujo y te vas con un entregable.
+        Una clase = <strong>un avance real</strong>. Definimos objetivo, trabajamos encima de tu caso y te vas con un entregable.
       </p>
 
-      <div class="hero__actions">
-        <a class="btn btn--ghost" href="index.html">← Volver al inicio</a>
-        <a class="btn btn--primary" href="contacto.html">📩 Pedir una clase</a>
+      <div class="hero__actions" style="margin-top:.8rem;">
+        <a class="btn btn--primary" href="#reservar">Agendar 15 min gratis</a>
+        <a class="btn btn--ghost" href="mailto:facugoette8@gmail.com">Escribirme</a>
       </div>
     </section>
 
+    <!-- RESERVA (principal) -->
+    <section id="reservar" class="section section--soft">
+      <div class="section__header">
+        <h2 class="section__title">Reservá tu clase</h2>
+        <p class="section__subtitle">Elegís fecha. Yo adapto contenido, ritmo y forma. Entrada recomendada: 15 minutos gratis.</p>
+      </div>
+
+      <article class="card">
+        <div class="booking-grid">
+          <div class="booking-picker">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/facugoette8/30min" style="min-width:320px;"></div>
+          </div>
+
+          <div class="booking-pitch">
+            <h2>Hecha a medida</h2>
+            <p><strong>Contenido</strong>: tu tema, tu problema, tu proyecto.</p>
+            <p><strong>Ritmo</strong>: rápido si ejecutás, lento si aprendés desde cero.</p>
+            <p><strong>Forma</strong>: pantalla compartida + pasos claros + material de salida.</p>
+
+            <div class="pitch-spot">
+              <strong>Consulta gratuita (15 min)</strong>
+              <div>La usamos para alinear objetivo, nivel y un plan simple. Si encaja, seguimos con la clase.</div>
+              <small>Si el turno figura como 30 min, lo usamos como consulta y cortamos en 15.</small>
+            </div>
+
+            <ul class="bullets">
+              <li>Definimos objetivo y entregable.</li>
+              <li>Trabajamos en vivo sobre tu caso.</li>
+              <li>Te llevás pasos + plantilla/archivo/nota final.</li>
+            </ul>
+
+            <div class="card__actions" style="margin-top:.9rem;">
+              <a class="btn btn--primary" href="https://calendly.com/facugoette8/30min" target="_blank" rel="noopener">Abrir Calendly</a>
+              <a class="btn btn--ghost" href="contacto.html">Ver redes</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- QUÉ PODÉS PEDIR -->
     <section class="section">
       <div class="section__header">
-        <h2 class="section__title">Formatos</h2>
-        <p class="section__subtitle">Puedes editar estos bloques para definir tu oferta.</p>
+        <h2 class="section__title">Qué podés trabajar conmigo</h2>
+        <p class="section__subtitle">Lo que vende acá no es “tema”, es resultado.</p>
       </div>
 
       <div class="grid3">
         <article class="card">
-          <h3 class="card__title">1:1 (personalizado)</h3>
-          <p class="card__text">Sesión enfocada en destrabar un problema y dejarte una plantilla o método usable.</p>
-          <div class="card__meta">Duración sugerida: 60–90 min</div>
+          <h3 class="card__title">📊 Datos / Excel / Automatización</h3>
+          <p class="card__text">Orden, limpieza, Power Query, modelos simples, procesos repetibles.</p>
+          <div class="card__meta">Entregable típico: plantilla + pasos + checklist.</div>
         </article>
 
         <article class="card">
-          <h3 class="card__title">Taller (grupo)</h3>
-          <p class="card__text">Cuando haya comunidad: trabajamos en vivo con casos reales.</p>
-          <div class="card__meta">Estado: próximamente</div>
+          <h3 class="card__title">🤖 Productividad con IA</h3>
+          <p class="card__text">Workflows, prompts útiles, sistemas de trabajo y reducción de fricción.</p>
+          <div class="card__meta">Entregable típico: SOP + prompts + tablero.</div>
         </article>
 
         <article class="card">
-          <h3 class="card__title">Mini-clases grabadas</h3>
-          <p class="card__text">Cápsulas cortas (10–20 min) con ejemplos aplicados.</p>
-          <div class="card__meta">Estado: en preparación</div>
+          <h3 class="card__title">🎥 Contenido / Streaming</h3>
+          <p class="card__text">Estrategia mínima viable, estructura de guiones, setup práctico.</p>
+          <div class="card__meta">Entregable típico: guion + rutina + estructura.</div>
         </article>
       </div>
     </section>
 
-    <section class="section section--soft">
+    <!-- PROCESO -->
+    <section class="section">
       <div class="section__header">
-        <h2 class="section__title">Temas posibles</h2>
-        <p class="section__subtitle">Lista editable (pon lo que realmente querés enseñar).</p>
+        <h2 class="section__title">Cómo es una clase</h2>
+        <p class="section__subtitle">Simple, sin humo.</p>
       </div>
 
-      <div class="grid2">
+      <div class="grid3">
         <article class="card">
-          <h3 class="card__title">Productividad + IA</h3>
-          <p class="card__text">Prompts, sistemas simples, automatizaciones livianas, organización diaria.</p>
-          <div class="card__meta">Objetivo: más claridad y ejecución</div>
+          <h3 class="card__title">1) Objetivo</h3>
+          <p class="card__text">Definimos qué querés lograr y qué “entregable” lo prueba.</p>
         </article>
+        <article class="card">
+          <h3 class="card__title">2) Ejecución</h3>
+          <p class="card__text">Trabajamos sobre tu caso, en vivo, con pasos claros.</p>
+        </article>
+        <article class="card">
+          <h3 class="card__title">3) Cierre</h3>
+          <p class="card__text">Te llevás un resumen accionable + siguiente paso.</p>
+        </article>
+      </div>
+    </section>
 
-        <article class="card">
-          <h3 class="card__title">Datos / Excel / migraciones</h3>
-          <p class="card__text">Limpieza, modelado, Power Query, reglas de calidad y procesos repetibles.</p>
-          <div class="card__meta">Objetivo: menos caos, más control</div>
-        </article>
+    <!-- FAQ -->
+    <section class="section">
+      <div class="section__header">
+        <h2 class="section__title">FAQ</h2>
+      </div>
+
+      <details>
+        <summary>¿Para quién es?</summary>
+        <p>Para gente que quiere avanzar de verdad: aprender haciendo o destrabar un problema concreto.</p>
+      </details>
+
+      <details>
+        <summary>¿Necesito preparación?</summary>
+        <p>No. Si tenés material (archivo, idea, objetivo), mejor. Si no, lo armamos rápido.</p>
+      </details>
+
+      <details>
+        <summary>¿Qué pasa si no sé explicar lo que quiero?</summary>
+        <p>Es normal. En la consulta gratis lo convertimos en un objetivo claro y un plan.</p>
+      </details>
+
+      <div style="margin-top:1rem;">
+        <a class="btn btn--primary" href="#reservar">Agendar 15 min gratis</a>
+        <a class="btn btn--ghost" href="mailto:facugoette8@gmail.com">facugoette8@gmail.com</a>
       </div>
     </section>
   </main>
@@ -91,4 +262,45 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
-      <div class="footer__links"><a class="link"
+      <div class="footer__links">
+        <a class="link" href="index.html">Inicio</a>
+        <span class="dot">·</span>
+        <a class="link" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Fondo: recorre la foto de arriba hacia abajo -->
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const startY = 5, endY = 95;
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+      setTimeout(setPos, 800);
+      setTimeout(setPos, 1800);
+    })();
+  </script>
+</body>
+</html>
