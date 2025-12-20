@@ -26,7 +26,13 @@
 
   <style>
     html, body { background: transparent !important; }
-    body { font-size: 15px; }
+
+    /* ↓ Escala general un poco más chica que Inicio */
+    body {
+      font-size: 14px;
+      transform: scale(.965);
+      transform-origin: top center;
+    }
 
     /* Fondo global */
     .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
@@ -50,115 +56,115 @@
     .hero   { background: rgba(255,255,255,.66) !important; backdrop-filter: blur(12px); }
     .card   { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
 
-    /* Tamaños */
-    .hero { padding: 1rem !important; }
-    .card { padding: .8rem !important; }
-    .btn  { padding: .5rem .85rem !important; font-size: .9rem !important; }
-    .section__title { font-size: 1.1rem !important; }
-    .section__subtitle { font-size: .9rem !important; }
+    /* Tamaños (apenas más compactos) */
+    .hero { padding: .9rem !important; }
+    .card { padding: .72rem !important; }
+    .btn  { padding: .44rem .76rem !important; font-size: .86rem !important; }
+    .section__title { font-size: 1.03rem !important; }
+    .section__subtitle { font-size: .86rem !important; }
 
     /* Hero */
     .hero__badge { display:none; }
-    .profile-hero { display:flex; flex-direction:column; gap:.25rem; }
-    .profile-hero__name { margin:0; font-size:clamp(1.6rem, 2.6vw, 2.05rem); letter-spacing:.01em; }
-    .profile-hero__role { margin:0; font-size:1rem; color:#374151; font-weight:600; }
-    .profile-hero__handle { margin:0; font-size:.88rem; color:var(--muted); }
+    .profile-hero { display:flex; flex-direction:column; gap:.22rem; }
+    .profile-hero__name { margin:0; font-size:clamp(1.45rem, 2.35vw, 1.9rem); letter-spacing:.01em; }
+    .profile-hero__role { margin:0; font-size:.95rem; color:#374151; font-weight:600; }
+    .profile-hero__handle { margin:0; font-size:.84rem; color:var(--muted); }
 
     /* Grid */
-    .contact-grid { display:grid; gap:1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .contact-grid { display:grid; gap:.9rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
     .card--full { grid-column: 1 / -1; }
 
-    .social-head { display:flex; align-items:baseline; justify-content:space-between; gap:.6rem; flex-wrap:wrap; margin-bottom:.45rem; }
-    .social-title { margin:0; font-size:1rem; letter-spacing:.01em; }
-    .social-handle { font-size:.84rem; color:var(--muted); }
+    .social-head { display:flex; align-items:baseline; justify-content:space-between; gap:.55rem; flex-wrap:wrap; margin-bottom:.4rem; }
+    .social-title { margin:0; font-size:.95rem; letter-spacing:.01em; }
+    .social-handle { font-size:.8rem; color:var(--muted); }
 
-    .embed { margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.6); }
+    .embed { margin-top:.55rem; border-radius:12px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.6); }
     .embed iframe { width:100%; border:0; display:block; }
 
-    /* Instagram: SOLO avatar grande centrado */
+    /* Instagram: SOLO avatar grande centrado (un poco más chico) */
     .ig-center {
-      margin-top: .65rem;
+      margin-top: .6rem;
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
-      gap:.5rem;
-      padding:.8rem;
+      gap:.45rem;
+      padding:.7rem;
       border-radius:14px;
       border:1px solid var(--border);
       background: rgba(255,255,255,.62);
     }
     .ig-avatar-big {
-      width: 170px;
-      height: 170px;
+      width: 150px;
+      height: 150px;
       border-radius: 999px;
       border: 4px solid rgba(255,255,255,.95);
       background-color:#e5e7eb;
       background-size:cover;
       background-position:center;
       background-image: url("317644327_1116765842315247_2099589209664585298_n.jpg");
-      box-shadow: 0 14px 34px rgba(0,0,0,.10);
+      box-shadow: 0 12px 28px rgba(0,0,0,.10);
     }
-    .ig-name-big { margin:0; font-size:1.05rem; color:#111827; font-weight:700; }
-    .ig-handle-big { margin:0; font-size:.95rem; color:var(--muted); }
+    .ig-name-big { margin:0; font-size:1rem; color:#111827; font-weight:700; }
+    .ig-handle-big { margin:0; font-size:.92rem; color:var(--muted); }
 
     /* Calendly */
-    .booking-grid { display:grid; grid-template-columns: 360px 1fr; gap:1rem; align-items:start; }
+    .booking-grid { display:grid; grid-template-columns: 340px 1fr; gap:.9rem; align-items:start; }
     @media (max-width: 980px){ .booking-grid { grid-template-columns: 1fr; } }
     .booking-picker { border-radius:14px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.72); }
-    .booking-picker .calendly-inline-widget { height: 420px !important; }
+    .booking-picker .calendly-inline-widget { height: 400px !important; }
 
-    .booking-pitch { border-radius:14px; border:1px solid var(--border); background: rgba(255,255,255,.72); padding: 1rem; }
-    .booking-pitch h3 { margin:0 0 .4rem; font-size:1.15rem; }
-    .booking-pitch p { margin:0 0 .6rem; color:#374151; line-height:1.55; }
-    .pitch-spot { margin-top:.65rem; padding:.85rem; border-radius:14px; border:1px solid rgba(37,99,235,.22); background: rgba(37,99,235,.06); }
-    .pitch-spot strong { display:block; margin-bottom:.25rem; }
+    .booking-pitch { border-radius:14px; border:1px solid var(--border); background: rgba(255,255,255,.72); padding: .9rem; }
+    .booking-pitch h3 { margin:0 0 .35rem; font-size:1.08rem; }
+    .booking-pitch p { margin:0 0 .55rem; color:#374151; line-height:1.55; }
+    .pitch-spot { margin-top:.6rem; padding:.8rem; border-radius:14px; border:1px solid rgba(37,99,235,.22); background: rgba(37,99,235,.06); }
+    .pitch-spot strong { display:block; margin-bottom:.22rem; }
     .pitch-spot small { color: var(--muted); }
 
     /* LinkedIn */
     .li-wrap { border-radius:16px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.86); }
     .li-cover {
-      height:200px;
+      height:190px;
       background-size:cover;
       background-position:center;
       background-color:#fff;
       background-image: url("linkedin-cover.jpg");
     }
-    .li-body { padding:1rem; display:grid; grid-template-columns: 96px 1fr; gap:1rem; align-items:start; }
+    .li-body { padding:.9rem; display:grid; grid-template-columns: 88px 1fr; gap:.9rem; align-items:start; }
     .li-avatar {
-      width:96px; height:96px; border-radius:999px; border:4px solid rgba(255,255,255,.95);
-      margin-top:-52px;
+      width:88px; height:88px; border-radius:999px; border:4px solid rgba(255,255,255,.95);
+      margin-top:-48px;
       background-size:cover; background-position:center;
       background-color:#e5e7eb;
       background-image: url("linkedin-avatar.jpg");
     }
-    .li-name { margin:0; font-size:1.1rem; }
-    .li-meta { margin:.18rem 0 0; color:var(--muted); font-size:.9rem; }
-    .li-desc { margin:.55rem 0 0; color:#374151; line-height:1.55; }
+    .li-name { margin:0; font-size:1.05rem; }
+    .li-meta { margin:.16rem 0 0; color:var(--muted); font-size:.86rem; }
+    .li-desc { margin:.5rem 0 0; color:#374151; line-height:1.55; }
 
-    /* X (como antes: portada + avatar + timeline) */
+    /* X */
     .x-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
     .x-banner {
-      height:110px;
+      height:104px;
       background-color:#fff;
       background-size:cover;
       background-position:center;
       background-image: url("1500x500.jpeg");
     }
-    .x-body { padding:.9rem; display:grid; grid-template-columns: 56px 1fr; gap:.75rem; align-items:start; }
+    .x-body { padding:.85rem; display:grid; grid-template-columns: 52px 1fr; gap:.7rem; align-items:start; }
     .x-avatar {
-      width:56px; height:56px; border-radius:999px; border:3px solid rgba(255,255,255,.95);
-      margin-top:-34px;
+      width:52px; height:52px; border-radius:999px; border:3px solid rgba(255,255,255,.95);
+      margin-top:-32px;
       background-size:cover; background-position:center;
       background-color:#e5e7eb;
       background-image: url("F11iB7Ul_400x400.jpg");
     }
-    .x-name { margin:0; font-size:1rem; }
-    .x-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
+    .x-name { margin:0; font-size:.96rem; }
+    .x-handle { margin:.1rem 0 0; color:var(--muted); font-size:.84rem; }
 
-    .final-contact { margin-top:1rem; padding:.75rem; border-radius:14px; border:1px dashed var(--border); background: rgba(255,255,255,.62); }
-    .final-contact__title { margin:0 0 .35rem; font-size:.92rem; }
+    .final-contact { margin-top:.9rem; padding:.7rem; border-radius:14px; border:1px dashed var(--border); background: rgba(255,255,255,.62); }
+    .final-contact__title { margin:0 0 .3rem; font-size:.9rem; }
   </style>
 </head>
 
@@ -191,7 +197,7 @@
         <p class="profile-hero__handle">@facugoette8</p>
       </div>
 
-      <div class="hero__actions" style="margin-top:.9rem;">
+      <div class="hero__actions" style="margin-top:.85rem;">
         <a class="btn btn--primary" href="mailto:facugoette8@gmail.com">📩 Mail</a>
         <a class="btn btn--ghost" href="https://ig.me/m/facugoette8" target="_blank" rel="noopener">📷 Instagram (MD)</a>
       </div>
@@ -219,7 +225,7 @@
 
           <div class="embed">
             <iframe
-              height="360"
+              height="340"
               loading="lazy"
               src="https://www.tiktok.com/player/v1/7483991984307260727?autoplay=1&loop=1&muted=1"
               title="TikTok · facugoette8"
@@ -228,7 +234,7 @@
           </div>
         </article>
 
-        <!-- Instagram (solo avatar grande) -->
+        <!-- Instagram -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">📷 Instagram</h3>
@@ -261,7 +267,7 @@
 
           <div class="embed">
             <iframe
-              height="260"
+              height="245"
               loading="lazy"
               src="https://www.youtube.com/embed/dikCAOnpZBc"
               title="Emigrar: 3 años lejos de casa"
@@ -270,7 +276,7 @@
           </div>
         </article>
 
-        <!-- X (como antes, sin textos extra) -->
+        <!-- X -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">𝕏</h3>
@@ -281,7 +287,7 @@
             <a class="btn btn--primary" href="https://x.com/Facundo_goette" target="_blank" rel="noopener">Ver perfil</a>
           </div>
 
-          <div class="x-profile" style="margin-top:.6rem;">
+          <div class="x-profile" style="margin-top:.55rem;">
             <div class="x-banner"></div>
             <div class="x-body">
               <div class="x-avatar" aria-hidden="true"></div>
@@ -292,8 +298,8 @@
             </div>
           </div>
 
-          <div class="embed" style="margin-top:.6rem;">
-            <a class="twitter-timeline" data-height="320" href="https://twitter.com/Facundo_goette"> </a>
+          <div class="embed" style="margin-top:.55rem;">
+            <a class="twitter-timeline" data-height="300" href="https://twitter.com/Facundo_goette"> </a>
           </div>
         </article>
       </div>
@@ -325,7 +331,7 @@
               <small>Si el turno figura como 30 min, lo usamos como consulta y cortamos en 15.</small>
             </div>
 
-            <div class="card__actions" style="margin-top:.9rem;">
+            <div class="card__actions" style="margin-top:.85rem;">
               <a class="btn btn--primary" href="https://calendly.com/facugoette8/30min" target="_blank" rel="noopener">Agendar consulta</a>
               <a class="btn btn--ghost" href="mailto:facugoette8@gmail.com">Escribirme por mail</a>
             </div>
@@ -353,7 +359,7 @@
               <p class="li-meta">linkedin.com/in/facundo-goette</p>
               <p class="li-desc">Comunicación + contenido: walking tours, reflexiones y clases prácticas.</p>
 
-              <div class="card__actions" style="margin-top:.7rem;">
+              <div class="card__actions" style="margin-top:.65rem;">
                 <a class="btn btn--primary" href="https://www.linkedin.com/in/facundo-goette/" target="_blank" rel="noopener">Ver LinkedIn</a>
               </div>
             </div>
