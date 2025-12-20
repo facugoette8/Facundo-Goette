@@ -89,27 +89,88 @@
 
     /* LinkedIn */
     .li-wrap { border-radius:16px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.86); }
-    .li-cover { height:200px; background-size:cover; background-position:center; background-image:url("linkedin-cover.jpg"); background-color:#fff; }
+    .li-cover {
+      height:200px;
+      background-size:cover;
+      background-position:center;
+      background-color:#fff;
+      background-image: image-set(
+        url("linkedin-cover.webp") type("image/webp") 1x,
+        url("linkedin-cover@2x.webp") type("image/webp") 2x,
+        url("linkedin-cover.jpg") type("image/jpeg") 1x,
+        url("linkedin-cover@2x.jpg") type("image/jpeg") 2x
+      );
+    }
     .li-body { padding:1rem; display:grid; grid-template-columns: 96px 1fr; gap:1rem; align-items:start; }
     .li-avatar {
       width:96px; height:96px; border-radius:999px; border:4px solid rgba(255,255,255,.95);
-      margin-top:-52px; background-size:cover; background-position:center; background-image:url("linkedin-avatar.jpg"); background-color:#e5e7eb;
+      margin-top:-52px;
+      background-size:cover; background-position:center;
+      background-color:#e5e7eb;
+      background-image: image-set(
+        url("linkedin-avatar.webp") type("image/webp") 1x,
+        url("linkedin-avatar@2x.webp") type("image/webp") 2x,
+        url("linkedin-avatar.jpg") type("image/jpeg") 1x,
+        url("linkedin-avatar@2x.jpg") type("image/jpeg") 2x
+      );
     }
     .li-name { margin:0; font-size:1.1rem; }
     .li-meta { margin:.18rem 0 0; color:var(--muted); font-size:.9rem; }
     .li-desc { margin:.55rem 0 0; color:#374151; line-height:1.55; }
 
-    /* X: tarjeta siempre visible + timeline si carga */
+    /* X (perfil con fotos locales si subís x-cover/x-avatar) + timeline si carga */
     .x-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
-    .x-banner { height:90px; background: linear-gradient(120deg, rgba(0,0,0,.10), rgba(37,99,235,.18), rgba(0,0,0,.06)); }
+    .x-banner {
+      height:110px;
+      background-color:#fff;
+      background-size:cover;
+      background-position:center;
+      background-image: url("x-cover.jpg"), linear-gradient(120deg, rgba(0,0,0,.10), rgba(37,99,235,.18), rgba(0,0,0,.06));
+      background-blend-mode: normal;
+    }
     .x-body { padding:.9rem; display:grid; grid-template-columns: 56px 1fr; gap:.75rem; align-items:start; }
     .x-avatar {
       width:56px; height:56px; border-radius:999px; border:3px solid rgba(255,255,255,.95);
-      margin-top:-34px; background-image:url("linkedin-avatar.jpg"); background-size:cover; background-position:center; background-color:#e5e7eb;
+      margin-top:-34px;
+      background-size:cover; background-position:center;
+      background-image: url("x-avatar.jpg"), url("linkedin-avatar.jpg");
+      background-color:#e5e7eb;
     }
     .x-name { margin:0; font-size:1rem; }
     .x-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
     .x-mini { margin:.45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
+
+    /* Instagram profile card (sin embed, sin bloqueos) */
+    .ig-profile {
+      border-radius:14px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      background: rgba(255,255,255,.78);
+    }
+    .ig-banner {
+      height:110px;
+      background: linear-gradient(135deg, rgba(236,72,153,.18), rgba(124,58,237,.14), rgba(59,130,246,.12));
+    }
+    .ig-body {
+      padding:.9rem;
+      display:grid;
+      grid-template-columns: 56px 1fr;
+      gap:.75rem;
+      align-items:start;
+    }
+    .ig-avatar {
+      width:56px; height:56px;
+      border-radius:999px;
+      border:3px solid rgba(255,255,255,.95);
+      margin-top:-34px;
+      background-image: url("linkedin-avatar.jpg");
+      background-size: cover;
+      background-position: center;
+      background-color:#e5e7eb;
+    }
+    .ig-name { margin:0; font-size:1rem; }
+    .ig-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
+    .ig-mini { margin:.45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
 
     .final-contact { margin-top:1rem; padding:.75rem; border-radius:14px; border:1px dashed var(--border); background: rgba(255,255,255,.62); }
     .final-contact__title { margin:0 0 .35rem; font-size:.92rem; }
@@ -155,11 +216,11 @@
     <section class="section">
       <div class="section__header">
         <h2 class="section__title">Redes</h2>
-        <p class="section__subtitle">Autoplay/loop dependen del navegador (casi siempre exige “mute” y a veces bloquea por cookies). Si no se reproduce, el botón abre el contenido.</p>
+        <p class="section__subtitle">Instagram sin embed (menos bloqueos). TikTok con player. X con perfil + timeline (si el navegador no bloquea terceros).</p>
       </div>
 
       <div class="contact-grid">
-        <!-- TikTok (autoplay + loop + muted) -->
+        <!-- TikTok -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">🎵 TikTok</h3>
@@ -182,7 +243,7 @@
           </div>
         </article>
 
-        <!-- Instagram (autoplay + loop + muted) -->
+        <!-- Instagram (perfil, sin reel) -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">📷 Instagram</h3>
@@ -191,18 +252,22 @@
 
           <div class="card__actions">
             <a class="btn btn--primary" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">Ver perfil</a>
-            <a class="btn btn--ghost" href="https://www.instagram.com/reel/DCnBcRWNmWh/" target="_blank" rel="noopener">Abrir Reel</a>
+            <a class="btn btn--ghost" href="https://ig.me/m/facugoette8" target="_blank" rel="noopener">Enviar MD</a>
           </div>
 
-          <div class="embed">
-            <iframe
-              height="360"
-              loading="lazy"
-              src="https://www.instagram.com/reel/DCnBcRWNmWh/embed?autoplay=1&loop=1&muted=1"
-              title="Instagram Reel · facugoette8"
-              allow="autoplay; encrypted-media; clipboard-write; picture-in-picture"
-              allowfullscreen></iframe>
+          <div class="ig-profile" style="margin-top:.6rem;">
+            <div class="ig-banner"></div>
+            <div class="ig-body">
+              <div class="ig-avatar" aria-hidden="true"></div>
+              <div>
+                <h4 class="ig-name">Facundo Goette</h4>
+                <div class="ig-handle">@facugoette8</div>
+                <div class="ig-mini">Walking tours, reflexiones y clips cortos.</div>
+              </div>
+            </div>
           </div>
+
+          <div class="note">Esto evita el bloqueo típico de embeds de Instagram.</div>
         </article>
 
         <!-- YouTube -->
@@ -226,7 +291,7 @@
           </div>
         </article>
 
-        <!-- X (handle correcto) -->
+        <!-- X -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">𝕏</h3>
@@ -237,6 +302,7 @@
             <a class="btn btn--primary" href="https://x.com/Facundo_goette" target="_blank" rel="noopener">Ver perfil</a>
           </div>
 
+          <!-- Perfil con fotos: subí x-cover.jpg y x-avatar.jpg para que sea "tal cual" -->
           <div class="x-profile" style="margin-top:.6rem;">
             <div class="x-banner"></div>
             <div class="x-body">
@@ -244,7 +310,7 @@
               <div>
                 <h4 class="x-name">Facundo Goette</h4>
                 <div class="x-handle">@Facundo_goette</div>
-                <div class="x-mini">Notas cortas, links y pensamiento en progreso.</div>
+                <div class="x-mini">Timeline abajo (si el navegador no bloquea).</div>
               </div>
             </div>
           </div>
@@ -252,6 +318,8 @@
           <div class="embed" style="margin-top:.6rem;">
             <a class="twitter-timeline" data-height="320" href="https://twitter.com/Facundo_goette">Tweets by @Facundo_goette</a>
           </div>
+
+          <div class="note">Para verlo “tal cual con fotos”: subí al repo <strong>x-cover.jpg</strong> y <strong>x-avatar.jpg</strong>.</div>
         </article>
       </div>
     </section>
@@ -309,7 +377,7 @@
               <h3 class="li-name">Facundo Goette</h3>
               <p class="li-meta">linkedin.com/in/facundo-goette</p>
               <p class="li-desc">
-                Comunicación + contenido: walking tours, reflexiones y clases prácticas con IA como copiloto.
+                Comunicación + contenido: walking tours, reflexiones y clases prácticas.
               </p>
 
               <div class="card__actions" style="margin-top:.7rem;">
@@ -373,3 +441,4 @@
   </script>
 </body>
 </html>
+
