@@ -2,17 +2,104 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Walking tours · Facundo Goette</title>
+  <title>Walking Tours · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Walking tours de Facundo Goette: recorridos a pie, historias mínimas y ciudad en tiempo real. Playlist actualizada en YouTube." />
+  <link rel="canonical" href="https://facugoette8.github.io/walking.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Facundo Goette" />
+  <meta property="og:url" content="https://facugoette8.github.io/walking.html" />
+  <meta property="og:title" content="Walking Tours · Facundo Goette" />
+  <meta property="og:description" content="Recorridos a pie: caminamos la ciudad y la contamos. Playlist actualizada en YouTube." />
+  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
+  <!-- X cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Walking Tours · Facundo Goette" />
+  <meta name="twitter:description" content="Recorridos a pie: caminamos la ciudad y la contamos. Playlist actualizada en YouTube." />
+  <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    html, body { background: transparent !important; }
+
+    /* Fondo */
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .page-bg {
+      z-index: -2;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 5%;
+      background-color: #ffffff;
+      background-image: url("site-bg.jpg");
+      background-image: image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
+      will-change: background-position;
+    }
+    .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
+
+    /* Cristal */
+    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
+    .hero, .card { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
+
+    /* Compacto */
+    body { font-size: 14px; }
+    .hero { padding: 1rem !important; }
+    .card { padding: .85rem !important; }
+    .btn  { padding: .46rem .8rem !important; font-size: .88rem !important; }
+    .section__title { font-size: 1.08rem !important; }
+    .section__subtitle { font-size: .88rem !important; }
+
+    /* Responsive video */
+    .video-wrap{
+      margin-top:.6rem;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.55);
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+    .video-wrap iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+      display:block;
+    }
+
+    /* Layout */
+    .grid2 { display:grid; gap:1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid3 { display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 900px){ .grid2, .grid3 { grid-template-columns: minmax(0, 1fr); } }
+
+    .note {
+      margin-top:.65rem;
+      padding:.7rem .85rem;
+      border-radius:14px;
+      border:1px dashed var(--border);
+      background: rgba(255,255,255,.62);
+      color:#374151;
+      line-height:1.55;
+      font-size:.9rem;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
         <a class="brand__name" href="index.html">Facundo Goette</a>
         <div class="brand__tagline">El mundo como nunca lo viste</div>
       </div>
+
       <nav class="nav">
         <a class="nav__link" href="index.html">Inicio</a>
         <a class="nav__link nav__link--active" href="walking.html">Walking tours</a>
@@ -25,43 +112,129 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero__badge">Walking tours</div>
-      <h1 class="hero__title">Walking tours con Facu</h1>
-      <p class="hero__lead">Página dedicada a recorridos. Aquí vas a poner tours, mapas y links a videos.</p>
+      <h1 class="hero__title">Walking tours</h1>
+      <p class="hero__lead">
+        Caminamos la ciudad y la contamos. Si querés un recorrido, lo armamos juntos: destino, ritmo y foco.
+      </p>
 
-      <div class="hero__actions">
-        <a class="btn btn--ghost" href="index.html">← Volver al inicio</a>
-        <a class="btn btn--primary" href="contacto.html">📩 Proponer una caminata</a>
+      <div class="hero__actions" style="margin-top:.8rem;">
+        <a class="btn btn--primary" href="#playlist">Ver playlist</a>
+        <a class="btn btn--ghost" href="contacto.html">Proponer un tour</a>
+        <a class="btn" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Abrir en YouTube</a>
       </div>
     </section>
 
+    <!-- PLAYLIST -->
+    <section id="playlist" class="section section--soft">
+      <div class="section__header">
+        <h2 class="section__title">Playlist de walking tours</h2>
+        <p class="section__subtitle">Se actualiza sola: cada nuevo video aparece acá.</p>
+      </div>
+
+      <article class="card">
+        <div class="card__actions" style="display:flex; gap:.6rem; flex-wrap:wrap;">
+          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Ver playlist</a>
+          <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
+        </div>
+
+        <div class="video-wrap">
+          <iframe
+            loading="lazy"
+            src="https://www.youtube.com/embed/videoseries?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO"
+            title="Playlist · Walking Tours"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="note">
+          Tip: si no se ve el listado de la derecha (según navegador), abrimos la playlist en YouTube y listo.
+        </div>
+      </article>
+    </section>
+
+    <!-- DESTACADOS (para que quede más “pro”) -->
     <section class="section">
       <div class="section__header">
-        <h2 class="section__title">Publicados</h2>
-        <p class="section__subtitle">Cada card = un tour.</p>
+        <h2 class="section__title">Qué vas a encontrar</h2>
+        <p class="section__subtitle">Tres pilares simples para entender el formato.</p>
       </div>
 
-      <div class="grid2">
+      <div class="grid3">
         <article class="card">
-          <h3 class="card__title">Rosario · Bulevares y cafés de barrio</h3>
-          <p class="card__text">Descripción corta del recorrido.</p>
-          <div class="card__meta">Video: <span class="link">próximamente</span></div>
+          <h3 class="card__title">🗺️ Recorrido</h3>
+          <p class="card__text">Caminamos con intención: barrios, ejes, micro-detalles y ritmo real.</p>
+          <div class="card__meta">Sin guion rígido: ciudad viva.</div>
         </article>
 
         <article class="card">
-          <h3 class="card__title">[Ciudad] · [Ruta]</h3>
-          <p class="card__text">Placeholder.</p>
-          <div class="card__meta">Video: <span class="link">próximamente</span></div>
+          <h3 class="card__title">🎧 Narrativa</h3>
+          <p class="card__text">Historias mínimas, observación, contexto y momentos espontáneos.</p>
+          <div class="card__meta">Lo convertimos en experiencia.</div>
+        </article>
+
+        <article class="card">
+          <h3 class="card__title">🤝 Comunidad</h3>
+          <p class="card__text">Si querés proponer ciudad/tema, lo definimos juntos y lo grabamos.</p>
+          <div class="card__meta">Ideas → recorrido.</div>
         </article>
       </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+      <article class="card">
+        <h2 class="section__title" style="margin:0 0 .35rem;">¿Querés un walking tour a pedido?</h2>
+        <p class="section__subtitle" style="margin:0 0 .75rem;">
+          Nos pasás ciudad + foco (arquitectura, cafés, historia, vida cotidiana) y lo armamos.
+        </p>
+        <div class="card__actions" style="display:flex; gap:.6rem; flex-wrap:wrap;">
+          <a class="btn btn--primary" href="contacto.html">Ir a Contacto</a>
+          <a class="btn btn--ghost" href="mailto:facugoette8@gmail.com">facugoette8@gmail.com</a>
+        </div>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
-      <div class="footer__links"><a class="link" href="contacto.html">Contacto</a></div>
+      <div class="footer__links">
+        <a class="link" href="index.html">Inicio</a>
+        <span class="dot">·</span>
+        <a class="link" href="walking.html">Walking tours</a>
+      </div>
     </div>
   </footer>
+
+  <!-- Fondo: recorre la foto de arriba hacia abajo -->
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const startY = 5, endY = 95;
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+      setTimeout(setPos, 800);
+      setTimeout(setPos, 1800);
+    })();
+  </script>
 </body>
 </html>
