@@ -2,14 +2,88 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Título del cuento · Facundo Goette</title>
+  <title>Reflexiones · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Cuento de Facundo Goette." />
-  <link rel="stylesheet" href="../styles.css" />
+  <meta name="description" content="Reflexiones de Facundo Goette: cuentos y escrituras propias + podcast en video (próximamente).">
+
+  <meta property="og:title" content="Reflexiones · Facundo Goette" />
+  <meta property="og:description" content="Cuentos y escrituras propias + podcast en video (próximamente)." />
+  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
+  <link rel="stylesheet" href="styles.css" />
 
   <style>
-    html, body { background: transparent !important; }
+    /* Fallback completo (por si styles.css no carga o se rompe) */
+    :root{
+      --bg:#ffffff;
+      --border:#e5e7eb;
+      --text:#111827;
+      --muted:#6b7280;
+      --accent:#111827;
+      --radius:16px;
+      --max:960px;
+      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:transparent;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
+    .header{
+      position:sticky;top:0;z-index:20;
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.72);
+      backdrop-filter:blur(12px);
+    }
+    .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+    .brand__name{font-weight:700;letter-spacing:.01em}
+    .brand__tagline{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+    .nav{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+    .nav__link{font-size:.9rem;color:var(--muted);padding:.35rem .6rem;border-radius:999px;border:1px solid transparent}
+    .nav__link:hover{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    .nav__link--active{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    .hero{padding:1rem;margin:1.25rem 0;border:1px solid var(--border);border-radius:var(--radius);background:rgba(255,255,255,.78);backdrop-filter:blur(10px)}
+    .hero__title{margin:.1rem 0 .4rem;font-size:1.55rem;line-height:1.15}
+    .hero__lead{margin:0;color:#374151;line-height:1.55}
+    .hero__actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem}
+    .btn{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.46rem .8rem;border-radius:999px;
+      border:1px solid var(--border);background:#fff;
+      font-size:.88rem;cursor:pointer
+    }
+    .btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn--ghost{background:transparent}
+    .section{margin:1.6rem 0}
+    .section--soft .card{background:rgba(255,255,255,.72)}
+    .section__header{margin-bottom:.75rem}
+    .section__title{margin:0 0 .15rem;font-size:1.1rem}
+    .section__subtitle{margin:0;color:var(--muted);font-size:.9rem;line-height:1.4}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    @media (max-width:1000px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:720px){.grid3,.grid2{grid-template-columns:1fr}.nav{display:none}}
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(10px);
+      padding:.85rem;
+    }
+    .card__title{margin:0 0 .35rem;font-size:1rem}
+    .card__text{margin:0;color:#374151;line-height:1.55}
+    .card__meta{margin-top:.45rem;color:var(--muted);font-size:.85rem}
+    .card__actions{margin-top:.75rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .footer{margin-top:2rem;border-top:1px solid var(--border);background:rgba(255,255,255,.72);backdrop-filter:blur(10px)}
+    .footer__inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0;color:var(--muted);font-size:.85rem}
+    .dot{opacity:.6}
 
+    /* Fondo */
     .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
     .page-bg{
       z-index:-2;
@@ -17,34 +91,65 @@
       background-size:cover;
       background-position:center 5%;
       background-color:#ffffff;
-      background-image:url("../site-bg.jpg");
-      background-image:image-set(url("../site-bg@2x.jpg") 2x, url("../site-bg.jpg") 1x);
+      background-image:url("site-bg.jpg");
+      background-image:image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
       will-change: background-position;
     }
-    .page-bg-overlay{ z-index:-1; background: rgba(255,255,255,.34); }
+    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.34);}
 
-    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
-    .card { background: rgba(255,255,255,.82) !important; backdrop-filter: blur(10px); }
-
-    body { font-size: 14px; }
-    .card { padding: 1rem !important; }
-    .btn  { padding: .46rem .8rem !important; font-size: .88rem !important; }
-
-    .article{
-      max-width: 780px;
-      margin: 0 auto;
+    /* Cuentos (cards con portada) */
+    .story-card{
+      padding:0;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      text-decoration:none;
+      color:inherit;
+      transition:transform .12s ease, box-shadow .12s ease;
     }
-    .cover{
-      border-radius: 16px;
+    .story-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
+    .story-cover{
+      height:150px;
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.08), rgba(0,0,0,0)),
+        var(--cover, linear-gradient(120deg, rgba(17,24,39,.14), rgba(0,0,0,0)));
+      background-size:cover;
+      background-position:center;
+      border-bottom:1px solid var(--border);
+    }
+    .story-body{padding:.85rem}
+    .pill{
+      font-size:.75rem;
+      padding:.22rem .55rem;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.60);
+      color:var(--muted);
+    }
+    .story-meta{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.55rem}
+
+    /* Podcast embed */
+    .video-wrap{
+      margin-top:.65rem;
+      border-radius:14px;
       overflow:hidden;
       border:1px solid var(--border);
-      margin-bottom: 1rem;
-      background: #f3f4f6;
+      background:rgba(255,255,255,.55);
+      position:relative;
+      width:100%;
+      padding-top:56.25%;
     }
-    .cover img{ width:100%; display:block; }
-    .meta{ color: var(--muted); font-size:.9rem; display:flex; gap:.6rem; flex-wrap:wrap; margin:.4rem 0 1rem; }
-    .content{ color:#111827; line-height:1.7; font-size: 1rem; }
-    .content p{ margin: 0 0 1rem; }
+    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .note{
+      margin-top:.65rem;
+      padding:.7rem .85rem;
+      border-radius:14px;
+      border:1px dashed var(--border);
+      background:rgba(255,255,255,.62);
+      color:#374151;
+      line-height:1.55;
+      font-size:.9rem;
+    }
   </style>
 </head>
 
@@ -55,56 +160,125 @@
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
-        <a class="brand__name" href="../index.html">Facundo Goette</a>
+        <a class="brand__name" href="index.html">Facundo Goette</a>
         <div class="brand__tagline">El mundo como nunca lo viste</div>
       </div>
-
       <nav class="nav">
-        <a class="nav__link" href="../index.html">Inicio</a>
-        <a class="nav__link" href="../walking.html">Walking tours</a>
-        <a class="nav__link nav__link--active" href="../streams.html">Reflexiones</a>
-        <a class="nav__link" href="../clases.html">Clases</a>
-        <a class="nav__link" href="../contacto.html">Contacto</a>
+        <a class="nav__link" href="index.html">Inicio</a>
+        <a class="nav__link" href="walking.html">Walking tours</a>
+        <a class="nav__link nav__link--active" href="streams.html">Reflexiones</a>
+        <a class="nav__link" href="clases.html">Clases</a>
+        <a class="nav__link" href="contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <article class="article">
-      <div class="card">
-        <!-- Portada (subí el archivo a assets/cuentos/...) -->
-        <div class="cover">
-          <img src="../assets/cuentos/mi-primer-cuento-cover.jpg" alt="Portada del cuento">
-        </div>
-
-        <h1 class="hero__title" style="margin:0;">Título del cuento</h1>
-        <div class="meta">
-          <span>2025-12-20</span><span>·</span><span>Cuento</span><span>·</span><span>@facugoette8</span>
-        </div>
-
-        <div class="content">
-          <p>Primer párrafo del cuento...</p>
-          <p>Segundo párrafo...</p>
-          <p>...</p>
-        </div>
-
-        <div class="card__actions" style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="../streams.html">Volver a Reflexiones</a>
-          <a class="btn btn--ghost" href="../contacto.html">Contacto</a>
-        </div>
+    <section class="hero">
+      <h1 class="hero__title">Reflexiones</h1>
+      <p class="hero__lead">
+        Cuentos y escrituras propias, más un podcast en video (cuando estén publicados los episodios).
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#cuentos">📖 Cuentos</a>
+        <a class="btn" href="#podcast">🎙️ Podcast</a>
+        <a class="btn btn--ghost" href="contacto.html">Contacto</a>
       </div>
-    </article>
+    </section>
+
+    <!-- CUENTOS -->
+    <section id="cuentos" class="section">
+      <div class="section__header">
+        <h2 class="section__title">Cuentos y escrituras</h2>
+        <p class="section__subtitle">Publicaciones con texto + portada (y fotos cuando aplique).</p>
+      </div>
+
+      <div class="grid3">
+        <!-- Card ejemplo 1 (con portada) -->
+        <a class="card story-card" href="cuentos/mi-primer-cuento.html" style="--cover:url('assets/cuentos/mi-primer-cuento-cover.jpg');">
+          <div class="story-cover"></div>
+          <div class="story-body">
+            <h3 class="card__title">Título del cuento (editame)</h3>
+            <p class="card__text">Extracto breve (1–2 líneas) para invitar a entrar.</p>
+            <div class="story-meta">
+              <span class="pill">Cuento</span>
+              <span class="pill">2025-12-20</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card ejemplo 2 (sin portada: degradé limpio) -->
+        <a class="card story-card" href="cuentos/nota-corta.html">
+          <div class="story-cover"></div>
+          <div class="story-body">
+            <h3 class="card__title">Nota corta (editame)</h3>
+            <p class="card__text">Idea puntual, reflexión directa, texto breve.</p>
+            <div class="story-meta">
+              <span class="pill">Nota</span>
+              <span class="pill">2025-12-20</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Card ejemplo 3 -->
+        <a class="card story-card" href="cuentos/proximamente.html">
+          <div class="story-cover"></div>
+          <div class="story-body">
+            <h3 class="card__title">Próximamente</h3>
+            <p class="card__text">Nuevo texto en preparación.</p>
+            <div class="story-meta">
+              <span class="pill">En edición</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- PODCAST -->
+    <section id="podcast" class="section section--soft">
+      <div class="section__header">
+        <h2 class="section__title">Podcast (videos)</h2>
+        <p class="section__subtitle">Cuando tengas la playlist, se muestra automáticamente acá.</p>
+      </div>
+
+      <article class="card">
+        <div class="card__actions">
+          <a class="btn btn--primary" id="btnPodcastYT" href="#" target="_blank" rel="noopener" style="display:none;">Ver playlist</a>
+          <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
+        </div>
+
+        <div id="podcastEmbed" class="video-wrap" style="display:none;">
+          <iframe
+            id="podcastIframe"
+            loading="lazy"
+            src=""
+            title="Podcast · Playlist"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div id="podcastComing" class="note">
+          Playlist del podcast: <strong>próximamente</strong>. Cuando exista, pegás el ID y queda embebida.
+        </div>
+
+        <!--
+          Cuando tengas la playlist del podcast:
+          - Copiá el "list=" de la URL de YouTube y reemplazá PODCAST_PLAYLIST_ID en el script.
+        -->
+      </article>
+    </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
-      <div class="footer__links">
-        <a class="link" href="../streams.html">Reflexiones</a>
+      <div>
+        <a href="index.html">Inicio</a> <span class="dot">·</span> <a href="streams.html">Reflexiones</a>
       </div>
     </div>
   </footer>
 
+  <!-- Fondo: recorre la foto de arriba hacia abajo -->
   <script>
     (() => {
       const bg = document.querySelector(".page-bg");
@@ -132,6 +306,29 @@
       window.addEventListener("resize", setPos);
       setTimeout(setPos, 800);
       setTimeout(setPos, 1800);
+    })();
+  </script>
+
+  <!-- Podcast: activar embed cuando exista la playlist -->
+  <script>
+    (() => {
+      const PODCAST_PLAYLIST_ID = "PEGAR_ID_AQUI"; // <- reemplazar cuando exista
+
+      const coming = document.getElementById("podcastComing");
+      const wrap = document.getElementById("podcastEmbed");
+      const iframe = document.getElementById("podcastIframe");
+      const btn = document.getElementById("btnPodcastYT");
+
+      const looksEmpty = !PODCAST_PLAYLIST_ID || PODCAST_PLAYLIST_ID.includes("PEGAR");
+      if (looksEmpty) return;
+
+      const ytListUrl = `https://www.youtube.com/playlist?list=${PODCAST_PLAYLIST_ID}`;
+      iframe.src = `https://www.youtube.com/embed/videoseries?list=${PODCAST_PLAYLIST_ID}`;
+
+      btn.href = ytListUrl;
+      btn.style.display = "";
+      wrap.style.display = "";
+      coming.style.display = "none";
     })();
   </script>
 </body>
