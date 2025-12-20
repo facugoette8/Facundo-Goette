@@ -12,12 +12,12 @@
   <meta property="og:site_name" content="Facundo Goette" />
   <meta property="og:url" content="https://facugoette8.github.io/walking.html" />
   <meta property="og:title" content="Walking Tours · Facundo Goette" />
-  <meta property="og:description" content="Recorridos a pie: caminamos la ciudad y la contamos. Playlist actualizada en YouTube." />
+  <meta property="og:description" content="Walking tours de Facundo Goette: recorridos a pie y ciudad en tiempo real." />
   <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Walking Tours · Facundo Goette" />
-  <meta name="twitter:description" content="Recorridos a pie: caminamos la ciudad y la contamos. Playlist actualizada en YouTube." />
+  <meta name="twitter:description" content="Walking tours: recorridos a pie y ciudad en tiempo real." />
   <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
   <link rel="stylesheet" href="styles.css" />
@@ -51,7 +51,7 @@
     .section__title { font-size: 1.08rem !important; }
     .section__subtitle { font-size: .88rem !important; }
 
-    /* Responsive video */
+    /* Video */
     .video-wrap{
       margin-top:.6rem;
       border-radius:14px;
@@ -72,65 +72,6 @@
     /* Layout */
     .grid3 { display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
     @media (max-width: 900px){ .grid3 { grid-template-columns: minmax(0, 1fr); } }
-
-    .note {
-      margin-top:.65rem;
-      padding:.7rem .85rem;
-      border-radius:14px;
-      border:1px dashed var(--border);
-      background: rgba(255,255,255,.62);
-      color:#374151;
-      line-height:1.55;
-      font-size:.9rem;
-    }
-
-    /* Cards YouTube (auto) */
-    .yt-grid { display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    @media (max-width: 1000px){ .yt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-    @media (max-width: 700px){ .yt-grid { grid-template-columns: minmax(0, 1fr); } }
-
-    .yt-card {
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-      text-decoration:none;
-      color: inherit;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.78);
-      backdrop-filter: blur(10px);
-      overflow:hidden;
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-    .yt-card:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.08); }
-
-    .yt-thumb {
-      width:100%;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      display:block;
-      background: #f3f4f6;
-    }
-    .yt-body { padding: .8rem .85rem .9rem; }
-    .yt-title { margin:0 0 .35rem; font-size: .95rem; line-height:1.25; color:#111827; }
-    .yt-meta { font-size:.8rem; color: var(--muted); display:flex; gap:.5rem; flex-wrap:wrap; }
-    .yt-badges { margin-top:.55rem; display:flex; gap:.5rem; flex-wrap:wrap; }
-    .yt-pill {
-      font-size:.75rem;
-      padding:.28rem .55rem;
-      border-radius: 999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.6);
-    }
-
-    .loading {
-      padding: .8rem .85rem;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.62);
-      color:#374151;
-      font-size:.9rem;
-    }
   </style>
 </head>
 
@@ -163,38 +104,21 @@
       </p>
 
       <div class="hero__actions" style="margin-top:.8rem;">
-        <a class="btn btn--primary" href="#ultimos">Ver videos</a>
-        <a class="btn" href="#playlist">Ver playlist</a>
+        <a class="btn btn--primary" href="#playlist">Ver playlist</a>
         <a class="btn btn--ghost" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Abrir en YouTube</a>
       </div>
     </section>
 
-    <!-- ÚLTIMOS VIDEOS (AUTO) -->
-    <section id="ultimos" class="section">
-      <div class="section__header">
-        <h2 class="section__title">Videos</h2>
-        <p class="section__subtitle">Se actualiza solo con tu playlist.</p>
-      </div>
-
-      <div id="ytLoading" class="loading">Cargando videos…</div>
-      <div id="ytGrid" class="yt-grid" style="display:none;"></div>
-
-      <div id="ytFail" class="note" style="display:none;">
-        No pudimos cargar la grilla automática en este navegador. Abrí la playlist en YouTube:
-        <a href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener"><strong>Ver playlist</strong></a>
-      </div>
-    </section>
-
-    <!-- PLAYLIST EMBEBIDA -->
+    <!-- PLAYLIST -->
     <section id="playlist" class="section section--soft">
       <div class="section__header">
         <h2 class="section__title">Playlist</h2>
-        <p class="section__subtitle">Lista completa en un solo lugar.</p>
+        <p class="section__subtitle">Todos los walking tours en un solo lugar.</p>
       </div>
 
       <article class="card">
         <div class="card__actions" style="display:flex; gap:.6rem; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Ver playlist</a>
+          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Ver en YouTube</a>
           <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
         </div>
 
@@ -205,10 +129,6 @@
             title="Playlist · Walking Tours"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
-        </div>
-
-        <div class="note">
-          Si el listado lateral no aparece según navegador, abrimos la playlist en YouTube y listo.
         </div>
       </article>
     </section>
@@ -239,20 +159,6 @@
           <div class="card__meta">Sin filtro.</div>
         </article>
       </div>
-    </section>
-
-    <!-- CTA LIVIANO -->
-    <section class="section">
-      <article class="card">
-        <h2 class="section__title" style="margin:0 0 .35rem;">¿Querés seguirlos desde YouTube?</h2>
-        <p class="section__subtitle" style="margin:0 0 .75rem;">
-          La playlist está siempre actualizada.
-        </p>
-        <div class="card__actions" style="display:flex; gap:.6rem; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Ver playlist</a>
-          <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
-        </div>
-      </article>
     </section>
   </main>
 
@@ -295,117 +201,6 @@
       window.addEventListener("resize", setPos);
       setTimeout(setPos, 800);
       setTimeout(setPos, 1800);
-    })();
-  </script>
-
-  <!-- Cards automáticas desde el feed de la playlist -->
-  <script>
-    (() => {
-      const PLAYLIST_ID = "PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO";
-      const FEED = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
-      const FEED_FALLBACK = `https://r.jina.ai/https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
-
-      const loadingEl = document.getElementById("ytLoading");
-      const gridEl = document.getElementById("ytGrid");
-      const failEl = document.getElementById("ytFail");
-
-      const esc = (s) => (s || "").replace(/[&<>"']/g, (m) => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-      }[m]));
-
-      const fmtDate = (iso) => {
-        try {
-          const d = new Date(iso);
-          return d.toLocaleDateString("es-ES", { year:"numeric", month:"short", day:"2-digit" });
-        } catch { return ""; }
-      };
-
-      const normalizeXml = (txt) => {
-        const start = txt.indexOf("<feed");
-        const end = txt.lastIndexOf("</feed>");
-        if (start !== -1 && end !== -1) return txt.slice(start, end + 7);
-        return txt;
-      };
-
-      const getNodeText = (parent, sel) => parent.querySelector(sel)?.textContent?.trim() || "";
-
-      const parseFeed = (xmlText) => {
-        const xml = new DOMParser().parseFromString(xmlText, "text/xml");
-        const entries = Array.from(xml.getElementsByTagName("entry"));
-        return entries.map((e) => {
-          const title = getNodeText(e, "title");
-          const published = getNodeText(e, "published");
-          const linkEl = e.querySelector('link[rel="alternate"]') || e.querySelector("link");
-          const url = linkEl?.getAttribute("href") || "";
-          const vid = getNodeText(e, "yt\\:videoId") || "";
-          let thumb = "";
-          try {
-            const tn = e.querySelector("media\\:thumbnail");
-            thumb = tn?.getAttribute("url") || "";
-          } catch {}
-          if (!thumb && vid) thumb = `https://i.ytimg.com/vi/${vid}/hqdefault.jpg`;
-          return { title, published, url, vid, thumb };
-        }).filter(v => v.url && v.title);
-      };
-
-      const render = (items) => {
-        const max = Math.min(items.length, 12);
-        const html = items.slice(0, max).map((v) => {
-          const date = fmtDate(v.published);
-          return `
-            <a class="yt-card" href="${esc(v.url)}" target="_blank" rel="noopener">
-              <img class="yt-thumb" loading="lazy" src="${esc(v.thumb)}" alt="${esc(v.title)}">
-              <div class="yt-body">
-                <h3 class="yt-title">${esc(v.title)}</h3>
-                <div class="yt-meta">
-                  <span>${esc(date)}</span>
-                  <span>·</span>
-                  <span>Walking tour</span>
-                </div>
-                <div class="yt-badges">
-                  <span class="yt-pill">YouTube</span>
-                  <span class="yt-pill">Playlist</span>
-                </div>
-              </div>
-            </a>
-          `;
-        }).join("");
-
-        gridEl.innerHTML = html;
-        gridEl.style.display = "";
-        loadingEl.style.display = "none";
-      };
-
-      const fail = () => {
-        loadingEl.style.display = "none";
-        failEl.style.display = "";
-      };
-
-      const load = async () => {
-        try {
-          const r = await fetch(FEED, { cache: "no-store" });
-          if (!r.ok) throw new Error("feed not ok");
-          const t = await r.text();
-          const items = parseFeed(t);
-          if (!items.length) throw new Error("no items");
-          render(items);
-          return;
-        } catch {}
-
-        try {
-          const r2 = await fetch(FEED_FALLBACK, { cache: "no-store" });
-          if (!r2.ok) throw new Error("fallback not ok");
-          const t2 = normalizeXml(await r2.text());
-          const items2 = parseFeed(t2);
-          if (!items2.length) throw new Error("no items");
-          render(items2);
-          return;
-        } catch {}
-
-        fail();
-      };
-
-      load();
     })();
   </script>
 </body>
