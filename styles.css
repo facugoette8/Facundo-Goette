@@ -118,3 +118,18 @@ a{text-decoration:none;color:inherit}
   .grid3{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr}
 }
+/* Instagram: preview tipo “feed” (no depende de embeds externos) */
+.ig-feed {
+  margin-top: .7rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.6);
+}
+.ig-feed a { display:block; }
+.ig-feed img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
