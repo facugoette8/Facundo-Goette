@@ -4,10 +4,118 @@
   <meta charset="UTF-8" />
   <title>Contacto · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Contacto y redes de Facundo Goette (@facugoette8).">
+
+  <!-- SEO -->
+  <meta name="description" content="Contacto de Facundo Goette. Redes sociales, YouTube y formas de escribir." />
+  <link rel="canonical" href="https://facugoette8.github.io/contacto.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Facundo Goette" />
+  <meta property="og:url" content="https://facugoette8.github.io/contacto.html" />
+  <meta property="og:title" content="Contacto · Facundo Goette" />
+  <meta property="og:description" content="Redes, YouTube y formas de escribir." />
+  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto · Facundo Goette" />
+  <meta name="twitter:description" content="Redes, YouTube y formas de escribir." />
+  <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
+
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    html, body { background: transparent !important; }
+
+    .page-bg, .page-bg-overlay {
+      position: fixed; inset: 0;
+      z-index: -2; pointer-events: none;
+    }
+
+    .page-bg {
+      z-index: -2;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center 5%;
+      background-color: #ffffff;
+
+      background-image: url("site-bg.jpg");
+      background-image: image-set(
+        url("site-bg.webp") type("image/webp") 1x,
+        url("site-bg@2x.webp") type("image/webp") 2x,
+        url("site-bg.jpg") type("image/jpeg") 1x,
+        url("site-bg@2x.jpg") type("image/jpeg") 2x
+      );
+
+      will-change: background-position;
+    }
+
+    .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.32); }
+
+    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
+    .hero   { background: rgba(255,255,255,.68) !important; backdrop-filter: blur(12px); }
+    .card   { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
+
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .social-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-bottom: .6rem;
+    }
+    .social-title { margin: 0; font-size: 1.05rem; letter-spacing: .01em; }
+    .social-handle { font-size: .85rem; color: var(--muted); }
+
+    .embed {
+      margin-top: .75rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.6);
+    }
+    .embed iframe { width: 100%; border: 0; display: block; }
+
+    .note {
+      font-size: .85rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin-top: .3rem;
+    }
+
+    .mini {
+      margin-top: 1.25rem;
+      padding: .9rem;
+      border-radius: 16px;
+      border: 1px dashed var(--border);
+      background: rgba(255,255,255,.62);
+    }
+    .mini h2 { margin: 0 0 .35rem; font-size: 1.05rem; }
+    .mini ul { margin: .35rem 0 .7rem 1.1rem; padding: 0; }
+    .mini li { margin: .25rem 0; color: #374151; font-size: .92rem; }
+
+    .mail {
+      display: flex; gap: .6rem; flex-wrap: wrap; align-items: center;
+      margin-top: .35rem;
+    }
+    .mail a { text-decoration: none; }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -28,110 +136,175 @@
   <main class="container">
     <section class="hero">
       <div class="hero__badge">Contacto</div>
-      <h1 class="hero__title">Hablemos</h1>
-      <p class="hero__lead">
-        Propuestas, colaboraciones, caminatas o clases: escribime por mail o por redes.
-      </p>
+      <h1 class="hero__title">Encontrame por donde te sea más cómodo.</h1>
+      <p class="hero__lead">Todo bajo <strong>@facugoette8</strong>.</p>
 
       <div class="hero__actions">
-        <a class="btn btn--ghost" href="index.html">← Volver al inicio</a>
-        <a class="btn btn--primary" href="mailto:facugoette8@gmail.com">✉️ Enviar email</a>
+        <a class="btn btn--primary" href="mailto:facugoette8@gmail.com">📩 Enviar email</a>
+        <a class="btn" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">▶️ YouTube</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">📷 Instagram</a>
       </div>
     </section>
 
     <section class="section">
       <div class="section__header">
-        <h2 class="section__title">Email</h2>
-        <p class="section__subtitle">Canal más directo.</p>
+        <h2 class="section__title">Redes (preview + acceso directo)</h2>
+        <p class="section__subtitle">Donde se puede, hay preview embebido. Si alguna plataforma bloquea embeds por país/navegador, el botón abre el perfil.</p>
       </div>
 
-      <div class="grid2">
+      <div class="contact-grid">
+        <!-- YOUTUBE: perfil grande + 2 videos -->
         <article class="card">
-          <h3 class="card__title">Gmail</h3>
-          <p class="card__text">
-            <a class="link" href="mailto:facugoette8@gmail.com">facugoette8@gmail.com</a>
-          </p>
-          <div class="card__meta">Tiempo de respuesta objetivo: 24–48h</div>
+          <div class="social-head">
+            <h3 class="social-title">▶️ YouTube</h3>
+            <div class="social-handle">@facugoette8</div>
+          </div>
+
+          <p class="card__text">Canal principal. Walking tours y reflexiones.</p>
+
+          <div class="card__actions" style="margin-top:.5rem;">
+            <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">Ver perfil</a>
+            <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
+          </div>
+
+          <div class="embed" style="margin-top:.8rem;">
+            <iframe height="280" loading="lazy"
+              src="https://www.youtube.com/embed/dikCAOnpZBc"
+              title="Emigrar: 3 años lejos de casa"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="embed" style="margin-top:.8rem;">
+            <iframe height="280" loading="lazy"
+              src="https://www.youtube.com/embed/5RtOo4CuIRo"
+              title="MILAN 4K Walking Tour"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
         </article>
 
+        <!-- TIKTOK: 1 video embed -->
         <article class="card">
-          <h3 class="card__title">Mensaje rápido</h3>
-          <p class="card__text">Si es por clases, pon: tema + objetivo + disponibilidad.</p>
-          <div class="card__meta">Ej: “Clase IA + productividad, 60 min, esta semana”</div>
+          <div class="social-head">
+            <h3 class="social-title">🎵 TikTok</h3>
+            <div class="social-handle">@facugoette8</div>
+          </div>
+
+          <p class="card__text">Clips cortos: ideas, calle y detrás de escena.</p>
+
+          <div class="card__actions" style="margin-top:.5rem;">
+            <a class="btn btn--primary" href="https://www.tiktok.com/@facugoette8" target="_blank" rel="noopener">Ver perfil</a>
+            <a class="btn btn--ghost" href="https://www.tiktok.com/@facugoette8/video/7483991984307260727" target="_blank" rel="noopener">Abrir este TikTok</a>
+          </div>
+
+          <div class="embed" style="margin-top:.8rem; padding:.75rem;">
+            <blockquote class="tiktok-embed"
+              cite="https://www.tiktok.com/@facugoette8/video/7483991984307260727"
+              data-video-id="7483991984307260727"
+              style="max-width: 100%; margin: 0;">
+              <section>
+                <a target="_blank" href="https://www.tiktok.com/@facugoette8" rel="noopener">@facugoette8</a>
+              </section>
+            </blockquote>
+          </div>
+
+          <div class="note">Si no se renderiza el embed, suele ser bloqueo del navegador/privacidad. El botón abre el video igual.</div>
+        </article>
+
+        <!-- INSTAGRAM: 1 reel embed -->
+        <article class="card">
+          <div class="social-head">
+            <h3 class="social-title">📷 Instagram</h3>
+            <div class="social-handle">@facugoette8</div>
+          </div>
+
+          <p class="card__text">Feed + momentos del proyecto.</p>
+
+          <div class="card__actions" style="margin-top:.5rem;">
+            <a class="btn btn--primary" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">Ver perfil</a>
+            <a class="btn btn--ghost" href="https://www.instagram.com/reel/DCnBcRWNmWhyjDE-dNYqo1aSq7otxcKeLaeb5k0/" target="_blank" rel="noopener">Abrir este Reel</a>
+          </div>
+
+          <div class="embed" style="margin-top:.8rem; padding:.75rem;">
+            <!-- Nota: si el permalink largo no embebe, reemplazalo por el formato corto /reel/CODIGO/ -->
+            <blockquote class="instagram-media"
+              data-instgrm-permalink="https://www.instagram.com/reel/DCnBcRWNmWhyjDE-dNYqo1aSq7otxcKeLaeb5k0/"
+              data-instgrm-version="14"
+              style="background:#fff; border:0; margin:0; width:100%;"></blockquote>
+          </div>
+
+          <div class="note">Si el embed no aparece, cambiá el link por el “copy link” del reel (formato corto) y recargá.</div>
+        </article>
+
+        <!-- X: timeline embed -->
+        <article class="card">
+          <div class="social-head">
+            <h3 class="social-title">𝕏</h3>
+            <div class="social-handle">@facugoette8</div>
+          </div>
+
+          <p class="card__text">Notas cortas, links y pensamiento en progreso.</p>
+
+          <div class="card__actions" style="margin-top:.5rem;">
+            <a class="btn btn--primary" href="https://x.com/facugoette8" target="_blank" rel="noopener">Ver perfil</a>
+          </div>
+
+          <div class="embed" style="margin-top:.8rem;">
+            <a class="twitter-timeline"
+               data-height="640"
+               href="https://twitter.com/facugoette8">Tweets by @facugoette8</a>
+          </div>
+        </article>
+
+        <!-- LINKEDIN -->
+        <article class="card">
+          <div class="social-head">
+            <h3 class="social-title">in LinkedIn</h3>
+            <div class="social-handle">/in/facugoette8</div>
+          </div>
+
+          <p class="card__text">Perfil profesional: experiencia, foco y próximos pasos.</p>
+
+          <div class="card__actions" style="margin-top:.5rem;">
+            <a class="btn btn--primary" href="https://www.linkedin.com/in/facugoette8/" target="_blank" rel="noopener">Ver LinkedIn</a>
+          </div>
+
+          <div class="note">Si ese link no es el exacto, reemplazalo por el URL real de tu perfil.</div>
+        </article>
+
+        <!-- ATAJO (sin “propuesta”) -->
+        <article class="card">
+          <div class="social-head">
+            <h3 class="social-title">📌 Atajo</h3>
+            <div class="social-handle">@facugoette8</div>
+          </div>
+
+          <p class="card__text">YouTube para largo, Instagram/TikTok para clips, X para notas.</p>
+
+          <div class="card__actions" style="margin-top:.5rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+            <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">Instagram</a>
+            <a class="btn" href="https://www.tiktok.com/@facugoette8" target="_blank" rel="noopener">TikTok</a>
+            <a class="btn btn--ghost" href="https://x.com/facugoette8" target="_blank" rel="noopener">X</a>
+          </div>
         </article>
       </div>
-    </section>
 
-    <section class="section section--soft">
-      <div class="section__header">
-        <h2 class="section__title">Redes</h2>
-        <p class="section__subtitle">Usuario: @facugoette8</p>
-      </div>
+      <!-- MENSAJE PEQUEÑO + razones + mail -->
+      <div class="mini">
+        <h2>¿Para qué escribirme?</h2>
+        <ul>
+          <li>Walking tours: ideas de recorridos, colaboración, edición o mapas.</li>
+          <li>Clases: resolver un problema concreto (datos, herramientas, productividad con IA).</li>
+          <li>Contenido: sugerencias de temas para streams/reflexiones.</li>
+          <li>Trabajo/colab: pedido puntual con contexto y objetivo claro.</li>
+        </ul>
 
-      <div class="grid3">
-        <article class="card">
-          <h3 class="card__title">YouTube</h3>
-          <p class="card__text">
-            <a class="link" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">
-              youtube.com/@facugoette8
-            </a>
-          </p>
-          <div class="card__meta">Canal principal</div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">Abrir YouTube</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">Instagram</h3>
-          <p class="card__text">
-            <a class="link" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">
-              instagram.com/facugoette8
-            </a>
-          </p>
-          <div class="card__meta">Clips y updates</div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">Abrir Instagram</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">X (Twitter)</h3>
-          <p class="card__text">
-            <a class="link" href="https://x.com/facundo_goette" target="_blank" rel="noopener">
-              x.com/facundo_goette
-            </a>
-          </p>
-          <div class="card__meta">Ideas cortas</div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://x.com/facundo_goette" target="_blank" rel="noopener">Abrir X</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">TikTok</h3>
-          <p class="card__text">
-            <a class="link" href="https://www.tiktok.com/@facugoette8" target="_blank" rel="noopener">
-              tiktok.com/@facugoette8
-            </a>
-          </p>
-          <div class="card__meta">Cápsulas rápidas</div>
-          <div class="card__actions">
-            <a class="btn btn--primary" href="https://www.tiktok.com/@facugoette8" target="_blank" rel="noopener">Abrir TikTok</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">Perfil unificado</h3>
-          <p class="card__text">Handle en todas: <strong>@facugoette8</strong></p>
-          <div class="card__meta">Si luego haces newsletter/LinkedIn, lo agregamos acá.</div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">Propuesta</h3>
-          <p class="card__text">En 3 líneas: qué querés, para cuándo y objetivo.</p>
-          <div class="card__meta">Menos ida y vuelta, más acción.</div>
-        </article>
+        <div class="mail">
+          <a class="btn btn--primary" href="mailto:facugoette8@gmail.com">facugoette8@gmail.com</a>
+          <span class="note">Asunto sugerido: <em>[Walking]</em> / <em>[Clases]</em> / <em>[Colab]</em></span>
+        </div>
       </div>
     </section>
   </main>
@@ -140,17 +313,58 @@
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
       <div class="footer__links">
-        <a class="link" href="mailto:facugoette8@gmail.com">Email</a>
+        <a class="link" href="index.html">Inicio</a>
         <span class="dot">·</span>
-        <a class="link" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">YouTube</a>
-        <span class="dot">·</span>
-        <a class="link" href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">Instagram</a>
-        <span class="dot">·</span>
-        <a class="link" href="https://x.com/facugoette8" target="_blank" rel="noopener">X</a>
-        <span class="dot">·</span>
-        <a class="link" href="https://www.tiktok.com/@facugoette8" target="_blank" rel="noopener">TikTok</a>
+        <a class="link" href="contacto.html">Contacto</a>
       </div>
     </div>
   </footer>
+
+  <!-- Widgets / Embeds -->
+  <script async src="https://www.tiktok.com/embed.js"></script>
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- Scroll: recorre la foto de arriba hacia abajo -->
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const startY = 5;
+      const endY = 95;
+
+      let ticking = false;
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(setPos);
+        }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+
+      // Forzar render de Instagram si tarda en procesar
+      const tryIG = () => {
+        if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+      };
+      setTimeout(tryIG, 800);
+      setTimeout(tryIG, 1800);
+    })();
+  </script>
 </body>
 </html>
