@@ -16,7 +16,7 @@
   <meta property="og:description" content="Redes sociales, LinkedIn y reserva de clases." />
   <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
-  <!-- Twitter -->
+  <!-- X / Twitter cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contacto · Facundo Goette" />
   <meta name="twitter:description" content="Redes sociales, LinkedIn y reserva de clases." />
@@ -45,7 +45,7 @@
     }
     .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
 
-    /* Cristal */
+    /* Cristal (se apoya en tu styles.css) */
     .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
     .hero   { background: rgba(255,255,255,.66) !important; backdrop-filter: blur(12px); }
     .card   { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
@@ -90,7 +90,7 @@
     .pitch-spot strong { display:block; margin-bottom:.25rem; }
     .pitch-spot small { color: var(--muted); }
 
-    /* LinkedIn */
+    /* LinkedIn (usa tus archivos: linkedin-cover.jpg + linkedin-avatar.jpg) */
     .li-wrap { border-radius:16px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.86); }
     .li-cover {
       height:200px;
@@ -98,10 +98,6 @@
       background-position:center;
       background-color:#fff;
       background-image: url("linkedin-cover.jpg");
-      background-image: image-set(
-        url("linkedin-cover@2x.jpg") 2x,
-        url("linkedin-cover.jpg") 1x
-      );
     }
     .li-body { padding:1rem; display:grid; grid-template-columns: 96px 1fr; gap:1rem; align-items:start; }
     .li-avatar {
@@ -110,16 +106,12 @@
       background-size:cover; background-position:center;
       background-color:#e5e7eb;
       background-image: url("linkedin-avatar.jpg");
-      background-image: image-set(
-        url("linkedin-avatar@2x.jpg") 2x,
-        url("linkedin-avatar.jpg") 1x
-      );
     }
     .li-name { margin:0; font-size:1.1rem; }
     .li-meta { margin:.18rem 0 0; color:var(--muted); font-size:.9rem; }
     .li-desc { margin:.55rem 0 0; color:#374151; line-height:1.55; }
 
-    /* Instagram (USANDO TU FOTO IG COMO AVATAR) */
+    /* Instagram (usa tu foto local: 3176...jpg) */
     .ig-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
     .ig-banner {
       height:110px;
@@ -140,7 +132,7 @@
     .ig-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
     .ig-mini { margin:.45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
 
-    /* X (usando tus archivos EXACTOS) */
+    /* X (usa tus archivos locales: 1500x500.jpeg + F11iB7Ul_400x400.jpg) */
     .x-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
     .x-banner {
       height:110px;
@@ -255,8 +247,6 @@
               </div>
             </div>
           </div>
-
-          <div class="note">Si querés también una portada IG, subí <strong>ig-cover.jpg</strong> y lo conecto.</div>
         </article>
 
         <!-- YouTube -->
@@ -272,7 +262,9 @@
           </div>
 
           <div class="embed">
-            <iframe height="260" loading="lazy"
+            <iframe
+              height="260"
+              loading="lazy"
               src="https://www.youtube.com/embed/dikCAOnpZBc"
               title="Emigrar: 3 años lejos de casa"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -306,6 +298,8 @@
           <div class="embed" style="margin-top:.6rem;">
             <a class="twitter-timeline" data-height="320" href="https://twitter.com/Facundo_goette">Tweets by @Facundo_goette</a>
           </div>
+
+          <div class="note">Si el timeline queda en blanco, es por bloqueo de cookies/terceros del navegador.</div>
         </article>
       </div>
     </section>
@@ -362,9 +356,7 @@
             <div>
               <h3 class="li-name">Facundo Goette</h3>
               <p class="li-meta">linkedin.com/in/facundo-goette</p>
-              <p class="li-desc">
-                Comunicación + contenido: walking tours, reflexiones y clases prácticas.
-              </p>
+              <p class="li-desc">Comunicación + contenido: walking tours, reflexiones y clases prácticas.</p>
 
               <div class="card__actions" style="margin-top:.7rem;">
                 <a class="btn btn--primary" href="https://www.linkedin.com/in/facundo-goette/" target="_blank" rel="noopener">Ver LinkedIn</a>
