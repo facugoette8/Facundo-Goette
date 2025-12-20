@@ -63,7 +63,6 @@
     .btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
     .btn--ghost{background:transparent}
     .section{margin:1.6rem 0}
-    .section--soft .card{background:rgba(255,255,255,.72)}
     .section__header{margin-bottom:.75rem}
     .section__title{margin:0 0 .15rem;font-size:1.1rem}
     .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
@@ -83,7 +82,7 @@
     .footer__inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0;color:var(--muted);font-size:.85rem}
     .dot{opacity:.6}
 
-    /* Fondo */
+    /* Fondo global */
     .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
     .page-bg{
       z-index:-2;
@@ -193,15 +192,13 @@
       </div>
 
       <div class="grid3">
-        <!-- CUENTO 1: ESA LOMA -->
-        <a class="card story-card" href="cuentos/esa-loma.html">
+        <!-- CUENTO 1: ESA LOMA (card con foto + título + texto) -->
+        <a class="card story-card" href="cuentos/esa-loma.html" style="--cover:url('assets/cuentos/esa-loma.jpg');">
           <div class="story-cover"></div>
           <div class="story-body">
             <h3 class="card__title">Esa loma</h3>
             <p class="card__text">Un viaje de verano hacia Mar del Plata, con mate, juegos y la Avenida Colón como umbral del mar.</p>
-            <div class="story-meta">
-              <span class="pill">Cuento</span>
-            </div>
+            <div class="story-meta"><span class="pill">Cuento</span></div>
           </div>
         </a>
 
@@ -211,9 +208,7 @@
           <div class="story-body">
             <h3 class="card__title">Próximamente</h3>
             <p class="card__text">Nuevo texto en preparación.</p>
-            <div class="story-meta">
-              <span class="pill">En edición</span>
-            </div>
+            <div class="story-meta"><span class="pill">En edición</span></div>
           </div>
         </a>
 
@@ -223,16 +218,14 @@
           <div class="story-body">
             <h3 class="card__title">Próximamente</h3>
             <p class="card__text">Nuevo texto en preparación.</p>
-            <div class="story-meta">
-              <span class="pill">En edición</span>
-            </div>
+            <div class="story-meta"><span class="pill">En edición</span></div>
           </div>
         </a>
       </div>
     </section>
 
     <!-- PODCAST -->
-    <section id="podcast" class="section section--soft">
+    <section id="podcast" class="section">
       <div class="section__header">
         <h2 class="section__title">Podcast</h2>
       </div>
