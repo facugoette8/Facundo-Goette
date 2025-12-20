@@ -36,12 +36,12 @@
       pointer-events: none;
     }
 
-    /* FOTO COMPLETA (sin recorte) */
+    /* CUBRE TODA LA PANTALLA (sin bordes blancos) */
     .page-bg {
       z-index: -2;
       background-repeat: no-repeat;
-      background-position: center center;
-      background-size: contain;   /* muestra toda la foto */
+      background-size: cover;             /* <- clave: cubre todo */
+      background-position: center 5%;     /* empieza un poco arriba */
       background-color: #ffffff;
 
       background-image: url("site-bg.jpg");
@@ -51,8 +51,11 @@
         url("site-bg.jpg") type("image/jpeg") 1x,
         url("site-bg@2x.jpg") type("image/jpeg") 2x
       );
+
+      will-change: background-position;
     }
 
+    /* Capa blanca suave encima para legibilidad */
     .page-bg-overlay {
       z-index: -1;
       background: rgba(255, 255, 255, 0.30);
@@ -74,6 +77,10 @@
     .section--soft {
       background: rgba(249, 250, 251, 0.52) !important;
       backdrop-filter: blur(10px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .page-bg { will-change: auto; }
     }
   </style>
 </head>
@@ -201,5 +208,41 @@
       </div>
     </div>
   </footer>
+
+  <!-- Al scrollear, “recorre” la foto de arriba hacia abajo (sin bordes blancos) -->
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduced) return;
+
+      const startY = 5;   // empieza un poco arriba
+      const endY = 95;    // termina mostrando el “pie” de la foto
+
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(setPos);
+        }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+    })();
+  </script>
 </body>
 </html>
