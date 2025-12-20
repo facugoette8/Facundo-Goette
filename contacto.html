@@ -45,7 +45,7 @@
     }
     .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
 
-    /* Cristal (se apoya en tu styles.css) */
+    /* Cristal */
     .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
     .hero   { background: rgba(255,255,255,.66) !important; backdrop-filter: blur(12px); }
     .card   { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
@@ -77,6 +77,22 @@
     .embed iframe { width:100%; border:0; display:block; }
     .note { font-size:.84rem; color:var(--muted); line-height:1.5; margin-top:.4rem; }
 
+    /* Instagram preview (foto local) */
+    .ig-feed {
+      margin-top: .7rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.6);
+    }
+    .ig-feed a { display:block; }
+    .ig-feed img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
     /* Calendly */
     .booking-grid { display:grid; grid-template-columns: 360px 1fr; gap:1rem; align-items:start; }
     @media (max-width: 980px){ .booking-grid { grid-template-columns: 1fr; } }
@@ -90,7 +106,7 @@
     .pitch-spot strong { display:block; margin-bottom:.25rem; }
     .pitch-spot small { color: var(--muted); }
 
-    /* LinkedIn (usa tus archivos: linkedin-cover.jpg + linkedin-avatar.jpg) */
+    /* LinkedIn */
     .li-wrap { border-radius:16px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.86); }
     .li-cover {
       height:200px;
@@ -111,7 +127,7 @@
     .li-meta { margin:.18rem 0 0; color:var(--muted); font-size:.9rem; }
     .li-desc { margin:.55rem 0 0; color:#374151; line-height:1.55; }
 
-    /* Instagram (usa tu foto local: 3176...jpg) */
+    /* Instagram (perfil card) */
     .ig-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
     .ig-banner {
       height:110px;
@@ -132,7 +148,7 @@
     .ig-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
     .ig-mini { margin:.45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
 
-    /* X (usa tus archivos locales: 1500x500.jpeg + F11iB7Ul_400x400.jpg) */
+    /* X */
     .x-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
     .x-banner {
       height:110px;
@@ -197,7 +213,7 @@
     <section class="section">
       <div class="section__header">
         <h2 class="section__title">Redes</h2>
-        <p class="section__subtitle">Instagram con tu foto (local). X con portada+avatar. TikTok con player.</p>
+        <p class="section__subtitle">Instagram con preview (foto). X con portada+avatar. TikTok con player.</p>
       </div>
 
       <div class="contact-grid">
@@ -246,6 +262,17 @@
                 <div class="ig-mini">Walking tours, reflexiones y clips cortos.</div>
               </div>
             </div>
+          </div>
+
+          <!-- Preview tipo "feed" (foto local) -->
+          <div class="ig-feed">
+            <a href="https://www.instagram.com/facugoette8/" target="_blank" rel="noopener">
+              <img
+                src="317644327_1116765842315247_2099589209664585298_n.jpg"
+                alt="Instagram · vista previa"
+                loading="lazy"
+              />
+            </a>
           </div>
         </article>
 
