@@ -2,66 +2,137 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Reflexiones · Facundo Goette</title>
+  <title>Título del cuento · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Cuento de Facundo Goette." />
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    html, body { background: transparent !important; }
+
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .page-bg{
+      z-index:-2;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center 5%;
+      background-color:#ffffff;
+      background-image:url("../site-bg.jpg");
+      background-image:image-set(url("../site-bg@2x.jpg") 2x, url("../site-bg.jpg") 1x);
+      will-change: background-position;
+    }
+    .page-bg-overlay{ z-index:-1; background: rgba(255,255,255,.34); }
+
+    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
+    .card { background: rgba(255,255,255,.82) !important; backdrop-filter: blur(10px); }
+
+    body { font-size: 14px; }
+    .card { padding: 1rem !important; }
+    .btn  { padding: .46rem .8rem !important; font-size: .88rem !important; }
+
+    .article{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .cover{
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      margin-bottom: 1rem;
+      background: #f3f4f6;
+    }
+    .cover img{ width:100%; display:block; }
+    .meta{ color: var(--muted); font-size:.9rem; display:flex; gap:.6rem; flex-wrap:wrap; margin:.4rem 0 1rem; }
+    .content{ color:#111827; line-height:1.7; font-size: 1rem; }
+    .content p{ margin: 0 0 1rem; }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
-        <a class="brand__name" href="index.html">Facundo Goette</a>
+        <a class="brand__name" href="../index.html">Facundo Goette</a>
         <div class="brand__tagline">El mundo como nunca lo viste</div>
       </div>
+
       <nav class="nav">
-        <a class="nav__link" href="index.html">Inicio</a>
-        <a class="nav__link" href="walking.html">Walking tours</a>
- <a class="nav__link nav__link--active" href="streams.html">Reflexiones</a>
-        <a class="nav__link" href="clases.html">Clases</a>
-        <a class="nav__link" href="contacto.html">Contacto</a>
+        <a class="nav__link" href="../index.html">Inicio</a>
+        <a class="nav__link" href="../walking.html">Walking tours</a>
+        <a class="nav__link nav__link--active" href="../streams.html">Reflexiones</a>
+        <a class="nav__link" href="../clases.html">Clases</a>
+        <a class="nav__link" href="../contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero__badge">Reflexiones</div>
-      <h1 class="hero__title">Reflexiones con Facu</h1>
-      <p class="hero__lead">Como nunca antes lo escuchaste.</p>
+    <article class="article">
+      <div class="card">
+        <!-- Portada (subí el archivo a assets/cuentos/...) -->
+        <div class="cover">
+          <img src="../assets/cuentos/mi-primer-cuento-cover.jpg" alt="Portada del cuento">
+        </div>
 
-      <div class="hero__actions">
-        <a class="btn btn--ghost" href="index.html">← Volver al inicio</a>
-        <a class="btn btn--primary" href="contacto.html">📩 Proponer una caminata</a>
+        <h1 class="hero__title" style="margin:0;">Título del cuento</h1>
+        <div class="meta">
+          <span>2025-12-20</span><span>·</span><span>Cuento</span><span>·</span><span>@facugoette8</span>
+        </div>
+
+        <div class="content">
+          <p>Primer párrafo del cuento...</p>
+          <p>Segundo párrafo...</p>
+          <p>...</p>
+        </div>
+
+        <div class="card__actions" style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+          <a class="btn btn--primary" href="../streams.html">Volver a Reflexiones</a>
+          <a class="btn btn--ghost" href="../contacto.html">Contacto</a>
+        </div>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section__header">
-        <h2 class="section__title">Publicados</h2>
-        <p class="section__subtitle">Cada card = un tour.</p>
-      </div>
-
-      <div class="grid2">
-        <article class="card">
-          <h3 class="card__title">Rosario · Bulevares y cafés de barrio</h3>
-          <p class="card__text">Descripción corta del recorrido.</p>
-          <div class="card__meta">Video: <span class="link">próximamente</span></div>
-        </article>
-
-        <article class="card">
-          <h3 class="card__title">[Ciudad] · [Ruta]</h3>
-          <p class="card__text">Placeholder.</p>
-          <div class="card__meta">Video: <span class="link">próximamente</span></div>
-        </article>
-      </div>
-    </section>
+    </article>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
-      <div class="footer__links"><a class="link" href="contacto.html">Contacto</a></div>
+      <div class="footer__links">
+        <a class="link" href="../streams.html">Reflexiones</a>
+      </div>
     </div>
   </footer>
+
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const startY = 5, endY = 95;
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+      setTimeout(setPos, 800);
+      setTimeout(setPos, 1800);
+    })();
+  </script>
 </body>
 </html>
