@@ -8,6 +8,7 @@
   <meta name="description" content="Contacto de Facundo Goette. Redes sociales, LinkedIn y reserva de clases." />
   <link rel="canonical" href="https://facugoette8.github.io/contacto.html" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Facundo Goette" />
   <meta property="og:url" content="https://facugoette8.github.io/contacto.html" />
@@ -15,6 +16,7 @@
   <meta property="og:description" content="Redes sociales, LinkedIn y reserva de clases." />
   <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contacto · Facundo Goette" />
   <meta name="twitter:description" content="Redes sociales, LinkedIn y reserva de clases." />
@@ -24,19 +26,15 @@
 
   <style>
     html, body { background: transparent !important; }
-    body { font-size: 15px; } /* todo un poco más chico */
+    body { font-size: 15px; }
 
-    .page-bg, .page-bg-overlay {
-      position: fixed; inset: 0;
-      z-index: -2; pointer-events: none;
-    }
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
     .page-bg {
       z-index: -2;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center 5%;
       background-color: #ffffff;
-
       background-image: url("site-bg.jpg");
       background-image: image-set(
         url("site-bg.webp") type("image/webp") 1x,
@@ -44,7 +42,6 @@
         url("site-bg.jpg") type("image/jpeg") 1x,
         url("site-bg@2x.jpg") type("image/jpeg") 2x
       );
-
       will-change: background-position;
     }
     .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
@@ -53,159 +50,68 @@
     .hero   { background: rgba(255,255,255,.66) !important; backdrop-filter: blur(12px); }
     .card   { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
 
-    /* achicar paddings/títulos sin tocar tu styles.css */
     .hero { padding: 1rem !important; }
     .card { padding: .8rem !important; }
     .btn  { padding: .5rem .85rem !important; font-size: .9rem !important; }
     .section__title { font-size: 1.1rem !important; }
     .section__subtitle { font-size: .9rem !important; }
 
-    /* HERO profesional */
     .hero__badge { display:none; }
     .profile-hero { display:flex; flex-direction:column; gap:.25rem; }
-    .profile-hero__name {
-      margin: 0;
-      font-size: clamp(1.6rem, 2.6vw, 2.05rem);
-      letter-spacing: .01em;
-    }
-    .profile-hero__role { margin:0; font-size: 1rem; color:#374151; font-weight:600; }
+    .profile-hero__name { margin:0; font-size:clamp(1.6rem, 2.6vw, 2.05rem); letter-spacing:.01em; }
+    .profile-hero__role { margin:0; font-size:1rem; color:#374151; font-weight:600; }
     .profile-hero__handle { margin:0; font-size:.88rem; color:var(--muted); }
 
-    /* GRID */
-    .contact-grid {
-      display:grid; gap:1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: minmax(0, 1fr); }
-    }
+    .contact-grid { display:grid; gap:1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
     .card--full { grid-column: 1 / -1; }
 
-    .social-head {
-      display:flex; align-items:baseline; justify-content:space-between;
-      gap:.6rem; flex-wrap:wrap; margin-bottom:.45rem;
-    }
-    .social-title { margin:0; font-size: 1rem; letter-spacing:.01em; }
+    .social-head { display:flex; align-items:baseline; justify-content:space-between; gap:.6rem; flex-wrap:wrap; margin-bottom:.45rem; }
+    .social-title { margin:0; font-size:1rem; letter-spacing:.01em; }
     .social-handle { font-size:.84rem; color:var(--muted); }
 
-    .embed {
-      margin-top:.6rem;
-      border-radius:12px; overflow:hidden;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.6);
-    }
+    .embed { margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.6); }
     .embed iframe { width:100%; border:0; display:block; }
     .note { font-size:.84rem; color:var(--muted); line-height:1.5; margin-top:.4rem; }
 
     /* Calendly: izquierda chica, derecha texto grande */
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 1rem;
-      align-items: start;
-    }
-    @media (max-width: 980px){
-      .booking-grid { grid-template-columns: 1fr; }
-    }
-    .booking-picker {
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.72);
-    }
+    .booking-grid { display:grid; grid-template-columns: 360px 1fr; gap:1rem; align-items:start; }
+    @media (max-width: 980px){ .booking-grid { grid-template-columns: 1fr; } }
+    .booking-picker { border-radius:14px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.72); }
     .booking-picker .calendly-inline-widget { height: 420px !important; }
 
-    .booking-pitch {
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.72);
-      padding: 1rem;
-    }
-    .booking-pitch h3 { margin: 0 0 .4rem; font-size: 1.15rem; }
-    .booking-pitch p { margin: 0 0 .6rem; color: #374151; line-height: 1.55; }
-    .pitch-spot {
-      margin-top: .65rem;
-      padding: .85rem;
-      border-radius: 14px;
-      border: 1px solid rgba(37,99,235,.22);
-      background: rgba(37,99,235,.06);
-    }
+    .booking-pitch { border-radius:14px; border:1px solid var(--border); background: rgba(255,255,255,.72); padding: 1rem; }
+    .booking-pitch h3 { margin:0 0 .4rem; font-size:1.15rem; }
+    .booking-pitch p { margin:0 0 .6rem; color:#374151; line-height:1.55; }
+    .pitch-spot { margin-top:.65rem; padding:.85rem; border-radius:14px; border:1px solid rgba(37,99,235,.22); background: rgba(37,99,235,.06); }
     .pitch-spot strong { display:block; margin-bottom:.25rem; }
     .pitch-spot small { color: var(--muted); }
 
-    /* LinkedIn “card” usando tus imágenes del repo */
-    .li-wrap {
-      border-radius:16px; overflow:hidden; border:1px solid var(--border);
-      background: rgba(255,255,255,.86);
-    }
-    .li-cover {
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      background-image: url("linkedin-cover.jpg");
-      background-color: #fff;
-    }
-    .li-body {
-      padding: 1rem;
-      display:grid;
-      grid-template-columns: 96px 1fr;
-      gap: 1rem;
-      align-items: start;
-    }
+    /* LinkedIn */
+    .li-wrap { border-radius:16px; overflow:hidden; border:1px solid var(--border); background: rgba(255,255,255,.86); }
+    .li-cover { height:200px; background-size:cover; background-position:center; background-image:url("linkedin-cover.jpg"); background-color:#fff; }
+    .li-body { padding:1rem; display:grid; grid-template-columns: 96px 1fr; gap:1rem; align-items:start; }
     .li-avatar {
-      width:96px; height:96px;
-      border-radius:999px;
-      border:4px solid rgba(255,255,255,.95);
-      margin-top:-52px;
-      background-size: cover;
-      background-position: center;
-      background-image: url("linkedin-avatar.jpg");
-      background-color:#e5e7eb;
+      width:96px; height:96px; border-radius:999px; border:4px solid rgba(255,255,255,.95);
+      margin-top:-52px; background-size:cover; background-position:center; background-image:url("linkedin-avatar.jpg"); background-color:#e5e7eb;
     }
     .li-name { margin:0; font-size:1.1rem; }
     .li-meta { margin:.18rem 0 0; color:var(--muted); font-size:.9rem; }
     .li-desc { margin:.55rem 0 0; color:#374151; line-height:1.55; }
 
-    /* X: que siempre se vea “perfil” (tarjeta) aunque el widget falle */
-    .x-profile {
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      background: rgba(255,255,255,.78);
-    }
-    .x-banner {
-      height: 90px;
-      background: linear-gradient(120deg, rgba(0,0,0,.10), rgba(37,99,235,.18), rgba(0,0,0,.06));
-    }
-    .x-body {
-      padding: .9rem;
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: .75rem;
-      align-items: start;
-    }
+    /* X: tarjeta siempre visible + timeline si carga */
+    .x-profile { border-radius:14px; border:1px solid var(--border); overflow:hidden; background: rgba(255,255,255,.78); }
+    .x-banner { height:90px; background: linear-gradient(120deg, rgba(0,0,0,.10), rgba(37,99,235,.18), rgba(0,0,0,.06)); }
+    .x-body { padding:.9rem; display:grid; grid-template-columns: 56px 1fr; gap:.75rem; align-items:start; }
     .x-avatar {
-      width: 56px; height: 56px;
-      border-radius: 999px;
-      border: 3px solid rgba(255,255,255,.95);
-      margin-top: -34px;
-      background-image: url("linkedin-avatar.jpg"); /* reutiliza tu foto */
-      background-size: cover;
-      background-position: center;
-      background-color: #e5e7eb;
+      width:56px; height:56px; border-radius:999px; border:3px solid rgba(255,255,255,.95);
+      margin-top:-34px; background-image:url("linkedin-avatar.jpg"); background-size:cover; background-position:center; background-color:#e5e7eb;
     }
-    .x-name { margin: 0; font-size: 1rem; }
-    .x-handle { margin: .12rem 0 0; color: var(--muted); font-size: .88rem; }
-    .x-mini { margin: .45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
+    .x-name { margin:0; font-size:1rem; }
+    .x-handle { margin:.12rem 0 0; color:var(--muted); font-size:.88rem; }
+    .x-mini { margin:.45rem 0 0; color:#374151; line-height:1.5; font-size:.9rem; }
 
-    /* Contacto final (pequeño) */
-    .final-contact {
-      margin-top: 1rem;
-      padding: .75rem;
-      border-radius: 14px;
-      border: 1px dashed var(--border);
-      background: rgba(255,255,255,.62);
-    }
+    .final-contact { margin-top:1rem; padding:.75rem; border-radius:14px; border:1px dashed var(--border); background: rgba(255,255,255,.62); }
     .final-contact__title { margin:0 0 .35rem; font-size:.92rem; }
   </style>
 </head>
@@ -249,11 +155,11 @@
     <section class="section">
       <div class="section__header">
         <h2 class="section__title">Redes</h2>
-        <p class="section__subtitle">Si algún embed no carga por cookies/privacidad del navegador, el botón abre el contenido igual.</p>
+        <p class="section__subtitle">Autoplay/loop dependen del navegador (casi siempre exige “mute” y a veces bloquea por cookies). Si no se reproduce, el botón abre el contenido.</p>
       </div>
 
       <div class="contact-grid">
-        <!-- TikTok (iframe player) -->
+        <!-- TikTok (autoplay + loop + muted) -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">🎵 TikTok</h3>
@@ -265,20 +171,18 @@
             <a class="btn btn--ghost" href="https://www.tiktok.com/@facugoette8/video/7483991984307260727" target="_blank" rel="noopener">Abrir video</a>
           </div>
 
-          <div class="embed" style="margin-top:.6rem;">
+          <div class="embed">
             <iframe
               height="360"
               loading="lazy"
-              src="https://www.tiktok.com/player/v1/7483991984307260727"
+              src="https://www.tiktok.com/player/v1/7483991984307260727?autoplay=1&loop=1&muted=1"
               title="TikTok · facugoette8"
-              allow="encrypted-media; autoplay; clipboard-write; picture-in-picture"
+              allow="autoplay; encrypted-media; clipboard-write; picture-in-picture"
               allowfullscreen></iframe>
           </div>
-
-          <div class="note">Embed por iframe (más confiable que el bloque de script).</div>
         </article>
 
-        <!-- Instagram (iframe embed) -->
+        <!-- Instagram (autoplay + loop + muted) -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">📷 Instagram</h3>
@@ -290,17 +194,15 @@
             <a class="btn btn--ghost" href="https://www.instagram.com/reel/DCnBcRWNmWh/" target="_blank" rel="noopener">Abrir Reel</a>
           </div>
 
-          <div class="embed" style="margin-top:.6rem;">
+          <div class="embed">
             <iframe
               height="360"
               loading="lazy"
-              src="https://www.instagram.com/reel/DCnBcRWNmWh/embed"
+              src="https://www.instagram.com/reel/DCnBcRWNmWh/embed?autoplay=1&loop=1&muted=1"
               title="Instagram Reel · facugoette8"
-              allow="encrypted-media; autoplay; clipboard-write; picture-in-picture"
+              allow="autoplay; encrypted-media; clipboard-write; picture-in-picture"
               allowfullscreen></iframe>
           </div>
-
-          <div class="note">Si IG bloquea el embed por cookies, abrilo con el botón.</div>
         </article>
 
         <!-- YouTube -->
@@ -324,36 +226,32 @@
           </div>
         </article>
 
-        <!-- X (perfil visible + widget opcional) -->
+        <!-- X (handle correcto) -->
         <article class="card">
           <div class="social-head">
             <h3 class="social-title">𝕏</h3>
-            <div class="social-handle">@facugoette8</div>
+            <div class="social-handle">@Facundo_goette</div>
           </div>
 
           <div class="card__actions">
-            <a class="btn btn--primary" href="https://x.com/facugoette8" target="_blank" rel="noopener">Ver perfil</a>
+            <a class="btn btn--primary" href="https://x.com/Facundo_goette" target="_blank" rel="noopener">Ver perfil</a>
           </div>
 
-          <!-- tarjeta (siempre visible) -->
           <div class="x-profile" style="margin-top:.6rem;">
             <div class="x-banner"></div>
             <div class="x-body">
               <div class="x-avatar" aria-hidden="true"></div>
               <div>
                 <h4 class="x-name">Facundo Goette</h4>
-                <div class="x-handle">@facugoette8</div>
+                <div class="x-handle">@Facundo_goette</div>
                 <div class="x-mini">Notas cortas, links y pensamiento en progreso.</div>
               </div>
             </div>
           </div>
 
-          <!-- widget (si carga, suma timeline) -->
           <div class="embed" style="margin-top:.6rem;">
-            <a class="twitter-timeline" data-height="320" href="https://twitter.com/facugoette8">Tweets by @facugoette8</a>
+            <a class="twitter-timeline" data-height="320" href="https://twitter.com/Facundo_goette">Tweets by @Facundo_goette</a>
           </div>
-
-          <div class="note">Si el timeline queda en blanco, es por bloqueo de terceros/cookies del navegador: la tarjeta + link igual cumplen.</div>
         </article>
       </div>
     </section>
@@ -367,12 +265,10 @@
 
       <article class="card card--full">
         <div class="booking-grid">
-          <!-- Calendly chico -->
           <div class="booking-picker">
             <div class="calendly-inline-widget" data-url="https://calendly.com/facugoette8/30min" style="min-width:320px;"></div>
           </div>
 
-          <!-- texto grande -->
           <div class="booking-pitch">
             <h3>Clase totalmente personalizada</h3>
             <p>
@@ -383,7 +279,7 @@
             <div class="pitch-spot">
               <strong>Consulta gratuita</strong>
               <div>Agendá <strong>15 minutos</strong> para contarme qué querés lograr y ver si encaja.</div>
-              <small>Si el turno disponible figura como 30 min, lo usamos como consulta y cortamos en 15.</small>
+              <small>Si el turno figura como 30 min, lo usamos como consulta y cortamos en 15.</small>
             </div>
 
             <div class="card__actions" style="margin-top:.9rem;">
@@ -442,7 +338,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 
@@ -466,10 +361,7 @@
       };
 
       const onScroll = () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(setPos);
-        }
+        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
       };
 
       setPos();
