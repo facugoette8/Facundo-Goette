@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Esa loma · Facundo Goette</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cuento: Esa loma. Un viaje de verano hacia Mar del Plata y la Avenida Colón como umbral del mar.">
+
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --border:#e5e7eb;--text:#111827;--muted:#6b7280;--radius:16px;--max:860px;
+      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--font);color:var(--text);background:transparent;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    .page-bg,.page-bg-overlay{position:fixed;inset:0;z-index:-2;pointer-events:none}
+    .page-bg{
+      background-size:cover;background-position:center 5%;
+      background-image:url("../site-bg.jpg");
+      background-image:image-set(url("../site-bg@2x.jpg") 2x, url("../site-bg.jpg") 1x);
+      background-color:#fff;will-change:background-position;
+    }
+    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.34)}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
+
+    .header{
+      position:sticky;top:0;z-index:20;
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.72);
+      backdrop-filter:blur(12px);
+    }
+    .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+    .brand__name{font-weight:700;letter-spacing:.01em}
+    .brand__tagline{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+    .nav{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+    .nav__link{font-size:.9rem;color:var(--muted);padding:.35rem .6rem;border-radius:999px;border:1px solid transparent}
+    .nav__link:hover{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    .nav__link--active{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    @media (max-width:720px){.nav{display:none}}
+
+    .card{
+      margin:1.25rem 0;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(10px);
+      padding:1rem;
+    }
+
+    h1{margin:.1rem 0 .25rem;font-size:1.65rem;line-height:1.15}
+    .meta{color:var(--muted);font-size:.92rem;display:flex;gap:.6rem;flex-wrap:wrap;margin:.35rem 0 1rem}
+    .divider{height:1px;background:var(--border);margin:1rem 0}
+    .content{line-height:1.75;font-size:1rem;color:#111827}
+    .content p{margin:0 0 1rem}
+
+    .note{
+      margin-top:1rem;
+      padding:.8rem .9rem;
+      border-radius:14px;
+      border:1px dashed var(--border);
+      background:rgba(255,255,255,.62);
+      color:#374151;
+      line-height:1.6;
+      font-size:.92rem;
+    }
+
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{
+      display:inline-flex;align-items:center;
+      padding:.46rem .8rem;border-radius:999px;
+      border:1px solid var(--border);background:#fff;
+      font-size:.88rem
+    }
+    .btn--primary{background:#111827;border-color:#111827;color:#fff}
+    .btn--ghost{background:transparent}
+  </style>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <a class="brand__name" href="../index.html">Facundo Goette</a>
+        <div class="brand__tagline">El mundo como nunca lo viste</div>
+      </div>
+      <nav class="nav">
+        <a class="nav__link" href="../index.html">Inicio</a>
+        <a class="nav__link" href="../walking.html">Walking tours</a>
+        <a class="nav__link nav__link--active" href="../streams.html">Reflexiones</a>
+        <a class="nav__link" href="../clases.html">Clases</a>
+        <a class="nav__link" href="../contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Esa loma</h1>
+      <div class="meta">
+        <span>Cuento</span><span>·</span><span>@facugoette8</span>
+      </div>
+
+      <div class="content">
+        <p>Cada verano, me acuerdo, luego de esa época de celebraciones, donde venía papá Noel, los reyes, cumpleaños y noches de asado y música, donde se aprovechaba cada triunfo como excusa para poder reunirse. De comenzar un enero seco y caluroso, viendo las fechas para hacer la escapadita. En Argentina lo más normal en aquella época era tomarse vacaciones en la playa, diría que de los 12 meses había que tomarse 15 días, o al menos 5 para estar en la arena.</p>
+
+        <p>Claro, imagina que vivíamos a 600 kilómetros del océano, y lejos de pensar en un transporte ágil. Estoy hablando de los 2.000, recuerdo ir en un corsa bordó, las ventanas de atrás estaban clausuradas, y el sistema acondicionado era el de aire natural que entraba por la trompa del auto y entraba así como era.. Los primeros 5 minutos era de cerrar los ojos porque más que aire, era tierra, que quedaba remolineando otra media hora en lo que viene a ser arriba del baúl.</p>
+
+        <p>Ahora que lo pienso, nadie se quejaba de eso, se escuchaba toser un rato y se acabó la historia. La sensación era diferente, la emoción de querer llegar y disfrutar de las olas, olas que sabias que te iban a revolcar y no te preocupaban.</p>
+
+        <p>De chico, el principio del viaje era subirse al coche, ya entraba todo preparado de antemano por la vieja que se levantó y se puso a hacer sanguchitos de miga para el camino, el viejo puso el agua del mate, revisó y encendió el auto; y ahora sí, a cargar las valijas.</p>
+
+        <p>En la salida a la ruta ya entran a pedir comida, pero de ansiedad y emoción, nada más. Para eso está la vieja calmando con la palabra, imagínate que el viaje es largo, por eso también viene la mochila que trae el cubo rubik y mil juegos más.</p>
+
+        <p>Ahora sí, con el amanecer de frente “Próximo destino: ¡Mar del Plata!”. Nunca supe por qué, pero el siguiente recuerdo continuado de esa frase era con dolor de cuello, espalda, despertando mal dormido, 400 kilómetros más adelante.</p>
+
+        <p>Sí señores, empezó la pesadilla para los padres…</p>
+
+        <p>Primera pregunta, “¿Por dónde vamos?”, a partir de ahí la cantidad que se te ocurra, o que puedan caber en 2 horas más de viaje. Por dentro todos nos moríamos de ganas de llegar, de sentir ese viento fresco, de subir la loma y mirar las olas sin parar. Pero aún había que entretenerse.</p>
+
+        <p>Desde ese momento del icónico “¿Cuánto falta?”, al parate en la ruta, descarga de mate y siguiente termo.</p>
+
+        <p>Ya cansados de viajar y con tanto por delante, aparecía un problema y una solución: Aburrimiento de los juegos de la mochila, renacimiento del más sencillo y entretenido de todos los tiempos, el Veo Veo.</p>
+
+        <p>Pero saltemos la parte que nos aburrimos de nuevo porque no hay mucho más que verde alrededor, y vayamos a donde ya hay casas viejas y calles sucias, una avenida larga y una nueva preocupación, hay que ir sacando el mapa.</p>
+
+        <p>Entrando el medio día, ya se siente el calor y el viento, todos callados empiezan a mirar hacia afuera, y esa avenida, con su loma al final, y por qué lo digo, porque si conocen la Colón, entenderán que nuestro destino se encuentra detrás de esa loma. No he encontrado un lugar igual, un lugar que te entretenga en cada semáforo, y que cuando llegue a la cima sientas la inmensidad de ese horizonte y las ganas de sacar el pie del acelerador, para disfrutar, esa cuadra y esa loma, al menos una vez al año.</p>
+      </div>
+
+      <div class="note">
+        Este cuento es una ilustración realista del inicio de unas vacaciones de verano que recuerda la famosa Avenida Colón en Mar del Plata, Buenos Aires, Argentina.
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--primary" href="../streams.html">Volver a Reflexiones</a>
+        <a class="btn btn--ghost" href="../contacto.html">Contacto</a>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const startY=5,endY=95; let ticking=false;
+      const setPos=()=>{const d=document.documentElement;const max=Math.max(1,d.scrollHeight-innerHeight);
+        const r=Math.min(1,Math.max(0,(scrollY||0)/max)); const y=startY+(endY-startY)*r;
+        bg.style.backgroundPosition=`center ${y}%`; ticking=false;};
+      const onScroll=()=>{if(!ticking){ticking=true;requestAnimationFrame(setPos)}};
+      setPos(); addEventListener("scroll",onScroll,{passive:true}); addEventListener("resize",setPos);
+    })();
+  </script>
+</body>
+</html>
