@@ -2,76 +2,97 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Walking Tours · Facundo Goette</title>
+  <title>Facundo Goette · Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados.">
 
-  <meta name="description" content="Walking Tours de Facundo Goette: Recorridos a pie, detalles que pasan desapercibidos y ciudad en tiempo real. Playlist actualizada en YouTube." />
-  <link rel="canonical" href="https://facugoette8.github.io/walking.html" />
+  <!-- Canonical para compartir -->
+  <link rel="canonical" href="https://facugoette8.github.io/index.html" />
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Facundo Goette" />
-  <meta property="og:url" content="https://facugoette8.github.io/walking.html" />
-  <meta property="og:title" content="Walking Tours · Facundo Goette" />
-  <meta property="og:description" content="Walking Tours de Facundo Goette: recorridos a pie y ciudad en tiempo real." />
+  <meta property="og:url" content="https://facugoette8.github.io/index.html" />
+  <meta property="og:title" content="Facundo Goette · Walking Tours, Reflexiones y Cursos personalizados" />
+  <meta property="og:description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados." />
   <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
+  <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Walking Tours · Facundo Goette" />
-  <meta name="twitter:description" content="Walking Tours: recorridos a pie y ciudad en tiempo real." />
+  <meta name="twitter:title" content="Facundo Goette · Walking Tours, Reflexiones y Cursos personalizados" />
+  <meta name="twitter:description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados." />
   <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    html, body { background: transparent !important; }
-
-    /* Fondo */
-    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .page-bg {
+    /* Fondo como antes (parallax detrás de todo) */
+    .page-bg, .page-bg-overlay {
+      position: fixed;
+      inset: 0;
       z-index: -2;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center 5%;
-      background-color: #ffffff;
-      background-image: url("site-bg.jpg");
-      background-image: image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
+      pointer-events: none;
+    }
+    .page-bg {
+      z-index:-2;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center 5%;
+      background-color:#ffffff;
+      background-image:url("site-bg.jpg");
+      background-image:image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
       will-change: background-position;
     }
-    .page-bg-overlay { z-index: -1; background: rgba(255,255,255,.34); }
+    .page-bg-overlay { z-index:-1; background: rgba(255,255,255,.34); }
 
-    /* Cristal */
-    .header { background: rgba(255,255,255,.72) !important; backdrop-filter: blur(12px); }
-    .hero, .card { background: rgba(255,255,255,.78) !important; backdrop-filter: blur(10px); }
-
-    /* Compacto */
-    body { font-size: 14px; }
-    .hero { padding: 1rem !important; }
-    .card { padding: .85rem !important; }
-    .btn  { padding: .46rem .8rem !important; font-size: .88rem !important; }
-    .section__title { font-size: 1.08rem !important; }
-    .section__subtitle { font-size: .88rem !important; }
-
-    /* Video */
-    .video-wrap{
-      margin-top:.6rem;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.55);
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
+    /* Marca igual que el index que tenías “bien”, solo un poco más grande */
+    .brand{
+      display:flex;
+      flex-direction:column;
+      flex: 1;
+      min-width: 240px;
     }
-    .video-wrap iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      border:0;
-      display:block;
+    .brand__name{
+      font-size: 1.22rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .brand__tagline{
+      font-size: .92rem;
     }
 
-    /* Layout */
-    .grid3 { display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    @media (max-width: 900px){ .grid3 { grid-template-columns: minmax(0, 1fr); } }
+    /* Nombre en el hero solo en móvil, debajo del texto y encima de los botones */
+    .hero__name-mobile{
+      display:none;
+      margin:.5rem 0 0;
+      font-size:1rem;
+      font-weight:600;
+    }
+
+    @media (max-width: 720px){
+      .brand{
+        min-width: 0;
+        max-width: 78vw;
+      }
+      .brand__name{
+        font-size: 1.22rem;
+        white-space: nowrap;
+        word-break: keep-all;
+        line-height: 1.1;
+      }
+      /* Para que no se corte raro el tagline en móvil, lo escondemos */
+      .brand__tagline{
+        display:none;
+      }
+      .hero__name-mobile{
+        display:block;
+      }
+    }
+
+    /* Hacer que las tarjetas de “Secciones” sean clickeables completas */
+    .card--clickable{
+      cursor:pointer;
+    }
   </style>
 </head>
 
@@ -87,8 +108,8 @@
       </div>
 
       <nav class="nav">
-        <a class="nav__link" href="index.html">Inicio</a>
-        <a class="nav__link nav__link--active" href="walking.html">Walking Tours</a>
+        <a class="nav__link nav__link--active" href="index.html">Inicio</a>
+        <a class="nav__link" href="walking.html">Walking Tours</a>
         <a class="nav__link" href="streams.html">Reflexiones</a>
         <a class="nav__link" href="clases.html">Cursos</a>
         <a class="nav__link" href="contacto.html">Contacto</a>
@@ -98,66 +119,110 @@
 
   <main class="container">
     <section class="hero">
-      <h1 class="hero__title">Walking Tours</h1>
-      <p class="hero__lead">
-        Recorridos a pie: ciudad en tiempo real, detalles que suelen pasar de largo y una forma personal de mirar.
-      </p>
+      <div class="hero__badge">Blog personal</div>
+      <h1 class="hero__title">Camina ciudades conmigo</h1>
+      <p class="hero__lead">Walking Tours - Reflexiones - Cursos personalizados</p>
+      <!-- Nombre sólo en móvil, debajo del texto y arriba de los botones -->
+      <p class="hero__name-mobile">Facundo Goette</p>
 
-      <div class="hero__actions" style="margin-top:.8rem;">
-        <a class="btn btn--primary" href="#playlist">Ver playlist</a>
-        <a class="btn btn--ghost" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Abrir en YouTube</a>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="walking.html">🚶 Walking Tours</a>
+        <a class="btn" href="streams.html">🎙️ Reflexiones</a>
+        <a class="btn" href="clases.html">📚 Ver Cursos</a>
+        <a class="btn btn--ghost" href="contacto.html">📩 Contacto</a>
       </div>
     </section>
 
-    <!-- PLAYLIST -->
-    <section id="playlist" class="section section--soft">
-      <div class="section__header">
-        <h2 class="section__title">Playlist</h2>
-        <p class="section__subtitle">Todos los walking tours en un solo lugar.</p>
-      </div>
-
-      <article class="card">
-        <div class="card__actions" style="display:flex; gap:.6rem; flex-wrap:wrap;">
-          <a class="btn btn--primary" href="https://www.youtube.com/playlist?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO" target="_blank" rel="noopener">Ver en YouTube</a>
-          <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
-        </div>
-
-        <div class="video-wrap">
-          <iframe
-            loading="lazy"
-            src="https://www.youtube.com/embed/videoseries?list=PLRSOHePqUicoaWpShutgzAnXhKmSNcXjO"
-            title="Playlist · Walking Tours"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-      </article>
-    </section>
-
-    <!-- FORMATO -->
     <section class="section">
       <div class="section__header">
-        <h2 class="section__title">Formato</h2>
-        <p class="section__subtitle">Qué define estos walking tours.</p>
+        <h2 class="section__title">Secciones</h2>
       </div>
 
       <div class="grid3">
+        <!-- Walking: tarjeta completa clickeable -->
+        <article class="card card--clickable" data-href="walking.html" role="button" tabindex="0">
+          <h3 class="card__title">🚶 Walking Tours</h3>
+          <p class="card__text">El mundo como nunca lo caminaste.</p>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="walking.html">Ver walking tours</a>
+          </div>
+        </article>
+
+        <!-- Reflexiones -->
+        <article class="card card--clickable" data-href="streams.html" role="button" tabindex="0">
+          <h3 class="card__title">🎙️ Reflexiones</h3>
+          <p class="card__text">Streams: sin maquillaje.</p>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="streams.html">Ver reflexiones</a>
+          </div>
+        </article>
+
+        <!-- Cursos -->
+        <article class="card card--clickable" data-href="clases.html" role="button" tabindex="0">
+          <h3 class="card__title">📚 Cursos</h3>
+          <p class="card__text">Sesiones prácticas (datos, herramientas, productividad) usando IA como copiloto.</p>
+          <div class="card__meta">Salís con un entregable, no con teoría.</div>
+          <div class="card__actions">
+            <a class="btn btn--primary" href="clases.html">Ver cursos</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- YOUTUBE: 2 videos fijos -->
+    <section class="section section--soft">
+      <div class="section__header">
+        <h2 class="section__title">YouTube</h2>
+        <p class="section__subtitle">@facugoette8 · videos</p>
+      </div>
+
+      <div class="grid2">
         <article class="card">
-          <h3 class="card__title">🗺️ Recorrido</h3>
-          <p class="card__text">Calles, barrios, plazas: caminata real, sin montaje.</p>
-          <div class="card__meta">Ritmo natural.</div>
+          <h3 class="card__title">Emigrar: 3 años lejos de casa</h3>
+
+          <div style="margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/dikCAOnpZBc"
+              title="Emigrar: 3 años lejos de casa"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="card__actions">
+            <a class="btn btn--primary" href="https://youtu.be/dikCAOnpZBc" target="_blank" rel="noopener">Abrir en YouTube</a>
+            <a class="btn btn--ghost" href="streams.html">Ir a Reflexiones</a>
+          </div>
         </article>
 
         <article class="card">
-          <h3 class="card__title">👀 Observación</h3>
-          <p class="card__text">Detalles y pequeñas historias que normalmente se te escapan.</p>
-          <div class="card__meta">Mirada personal.</div>
-        </article>
+          <h3 class="card__title">MILAN 4K 🇮🇹 Walking Tour</h3>
 
-        <article class="card">
-          <h3 class="card__title">🎧 Ambiente</h3>
-          <p class="card__text">Sonido y ciudad tal cual: lo lindo y lo imperfecto.</p>
-          <div class="card__meta">Sin filtro.</div>
+          <div style="margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
+            <iframe
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/5RtOo4CuIRo"
+              title="MILAN 4K Walking Tour"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="card__actions">
+            <a class="btn btn--primary" href="https://youtu.be/5RtOo4CuIRo" target="_blank" rel="noopener">Abrir en YouTube</a>
+            <a class="btn btn--ghost" href="walking.html">Ir a Walking</a>
+          </div>
         </article>
+      </div>
+
+      <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+        <a class="btn btn--primary" href="https://www.youtube.com/@facugoette8" target="_blank" rel="noopener">Ver canal</a>
+        <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
       </div>
     </section>
   </main>
@@ -166,15 +231,13 @@
     <div class="container footer__inner">
       <div>© 2025 Facundo Goette</div>
       <div class="footer__links">
-        <a class="link" href="index.html">Inicio</a>
-        <span class="dot">·</span>
-        <a class="link" href="walking.html">Walking Tours</a>
+        <a class="link" href="contacto.html">Contacto</a>
       </div>
     </div>
   </footer>
 
-  <!-- Fondo: recorre la foto de arriba hacia abajo -->
   <script>
+    // Parallax para el fondo (igual que antes)
     (() => {
       const bg = document.querySelector(".page-bg");
       if (!bg) return;
@@ -199,8 +262,29 @@
       setPos();
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", setPos);
-      setTimeout(setPos, 800);
-      setTimeout(setPos, 1800);
+    })();
+
+    // Hace clickeables las tarjetas de “Secciones” sin tocar el menú
+    (() => {
+      const cards = document.querySelectorAll(".grid3 .card--clickable");
+      cards.forEach(card => {
+        const target = card.getAttribute("data-href");
+        if (!target) return;
+
+        const go = () => { window.location.href = target; };
+
+        card.addEventListener("click", (e) => {
+          if (e.target && e.target.closest("a")) return; // si clic en el botón, usa el link normal
+          go();
+        });
+
+        card.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            go();
+          }
+        });
+      });
     })();
   </script>
 </body>
