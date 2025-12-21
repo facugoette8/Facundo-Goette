@@ -6,10 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados.">
 
-  <!-- Canonical para compartir -->
   <link rel="canonical" href="https://facugoette8.github.io/index.html" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Facundo Goette" />
   <meta property="og:url" content="https://facugoette8.github.io/index.html" />
@@ -17,7 +15,6 @@
   <meta property="og:description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados." />
   <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
 
-  <!-- X / Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Facundo Goette · Walking Tours, Reflexiones y Cursos personalizados" />
   <meta name="twitter:description" content="Camina ciudades conmigo. Walking Tours, Reflexiones y Cursos personalizados." />
@@ -26,14 +23,9 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    /* Fondo como antes (parallax detrás de todo) */
-    .page-bg, .page-bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-    }
-    .page-bg {
+    /* Fondo (parallax detrás de todo) */
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .page-bg{
       z-index:-2;
       background-repeat:no-repeat;
       background-size:cover;
@@ -43,56 +35,101 @@
       background-image:image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
       will-change: background-position;
     }
-    .page-bg-overlay { z-index:-1; background: rgba(255,255,255,.34); }
+    .page-bg-overlay{ z-index:-1; background: rgba(255,255,255,.34); }
 
-    /* Marca igual que el index que tenías “bien”, solo un poco más grande */
-    .brand{
-      display:flex;
-      flex-direction:column;
-      flex: 1;
-      min-width: 240px;
-    }
-    .brand__name{
-      font-size: 1.22rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .brand__tagline{
-      font-size: .92rem;
-    }
+    /* Marca (PC un poco más grande) */
+    .brand{ display:flex; flex-direction:column; flex: 1; min-width: 240px; }
+    .brand__name{ font-size: 1.22rem; font-weight: 700; white-space: nowrap; }
+    .brand__tagline{ font-size: .92rem; }
 
-    /* Nombre en el hero solo en móvil, debajo del texto y encima de los botones */
-    .hero__name-mobile{
-      display:none;
-      margin:.5rem 0 0;
-      font-size:1rem;
-      font-weight:600;
-    }
+    /* Mobile: header prolijo + nav rápido + hero/botones en grilla */
+    .mobile-nav{ display:none; }
 
     @media (max-width: 720px){
+      .header__inner{
+        align-items:flex-start;
+        gap:.75rem;
+      }
+
+      /* Evita cortes raros del nombre */
       .brand{
         min-width: 0;
-        max-width: 78vw;
+        flex: 1;
       }
       .brand__name{
-        font-size: 1.22rem;
+        font-size: 1.18rem;
+        line-height: 1.15;
         white-space: nowrap;
-        word-break: keep-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+
+      /* Tagline: que se lea y no quede palabra por palabra */
+      .brand__tagline{
+        font-size: .9rem;
+        line-height: 1.2;
+        margin-top: .15rem;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        max-width: 100%;
+      }
+
+      /* Nav desktop fuera, nav mobile abajo */
+      .nav{ display:none; }
+      .mobile-nav{
+        display:flex;
+        gap:.5rem;
+        padding:.55rem 0 .15rem;
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .mobile-nav a{
+        white-space:nowrap;
+        font-size:.9rem;
+        padding:.38rem .7rem;
+        border-radius:999px;
+        border:1px solid var(--border);
+        background: rgba(255,255,255,.72);
+      }
+      .mobile-nav a.is-active{
+        background: rgba(255,255,255,.9);
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      /* Hero más prolijo */
+      .hero{
+        padding: 1rem !important;
+      }
+      .hero__badge{
+        margin-bottom: .55rem !important;
+      }
+      .hero__title{
         line-height: 1.1;
       }
-      /* Para que no se corte raro el tagline en móvil, lo escondemos */
-      .brand__tagline{
-        display:none;
+      .hero__lead{
+        margin-top: .35rem !important;
       }
-      .hero__name-mobile{
-        display:block;
+
+      /* Botones: 2 columnas, full width */
+      .hero__actions{
+        display:grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap:.6rem;
       }
+      .hero__actions .btn{
+        width:100%;
+        justify-content:center;
+      }
+
+      /* YouTube: menos alto en móvil */
+      .section iframe{ height: 210px !important; }
     }
 
-    /* Hacer que las tarjetas de “Secciones” sean clickeables completas */
-    .card--clickable{
-      cursor:pointer;
-    }
+    /* Tarjetas de “Secciones” clickeables completas */
+    .card--clickable{ cursor:pointer; }
   </style>
 </head>
 
@@ -105,9 +142,19 @@
       <div class="brand">
         <a class="brand__name" href="index.html">Facundo Goette</a>
         <div class="brand__tagline">El mundo como nunca lo viste</div>
+
+        <!-- Nav mobile -->
+        <nav class="mobile-nav" aria-label="Navegación principal">
+          <a class="is-active" href="index.html">Inicio</a>
+          <a href="walking.html">Walking</a>
+          <a href="streams.html">Reflexiones</a>
+          <a href="clases.html">Cursos</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
       </div>
 
-      <nav class="nav">
+      <!-- Nav desktop -->
+      <nav class="nav" aria-label="Navegación principal">
         <a class="nav__link nav__link--active" href="index.html">Inicio</a>
         <a class="nav__link" href="walking.html">Walking Tours</a>
         <a class="nav__link" href="streams.html">Reflexiones</a>
@@ -122,8 +169,6 @@
       <div class="hero__badge">Blog personal</div>
       <h1 class="hero__title">Camina ciudades conmigo</h1>
       <p class="hero__lead">Walking Tours - Reflexiones - Cursos personalizados</p>
-      <!-- Nombre sólo en móvil, debajo del texto y arriba de los botones -->
-      <p class="hero__name-mobile">Facundo Goette</p>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="walking.html">🚶 Walking Tours</a>
@@ -139,7 +184,6 @@
       </div>
 
       <div class="grid3">
-        <!-- Walking: tarjeta completa clickeable -->
         <article class="card card--clickable" data-href="walking.html" role="button" tabindex="0">
           <h3 class="card__title">🚶 Walking Tours</h3>
           <p class="card__text">El mundo como nunca lo caminaste.</p>
@@ -148,7 +192,6 @@
           </div>
         </article>
 
-        <!-- Reflexiones -->
         <article class="card card--clickable" data-href="streams.html" role="button" tabindex="0">
           <h3 class="card__title">🎙️ Reflexiones</h3>
           <p class="card__text">Streams: sin maquillaje.</p>
@@ -157,7 +200,6 @@
           </div>
         </article>
 
-        <!-- Cursos -->
         <article class="card card--clickable" data-href="clases.html" role="button" tabindex="0">
           <h3 class="card__title">📚 Cursos</h3>
           <p class="card__text">Sesiones prácticas (datos, herramientas, productividad) usando IA como copiloto.</p>
@@ -169,7 +211,6 @@
       </div>
     </section>
 
-    <!-- YOUTUBE: 2 videos fijos -->
     <section class="section section--soft">
       <div class="section__header">
         <h2 class="section__title">YouTube</h2>
@@ -237,7 +278,6 @@
   </footer>
 
   <script>
-    // Parallax para el fondo (igual que antes)
     (() => {
       const bg = document.querySelector(".page-bg");
       if (!bg) return;
@@ -264,7 +304,6 @@
       window.addEventListener("resize", setPos);
     })();
 
-    // Hace clickeables las tarjetas de “Secciones” sin tocar el menú
     (() => {
       const cards = document.querySelectorAll(".grid3 .card--clickable");
       cards.forEach(card => {
@@ -274,7 +313,7 @@
         const go = () => { window.location.href = target; };
 
         card.addEventListener("click", (e) => {
-          if (e.target && e.target.closest("a")) return; // si clic en el botón, usa el link normal
+          if (e.target && e.target.closest("a")) return;
           go();
         });
 
