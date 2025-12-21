@@ -2,93 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Facundo Goette · Caminar ciudades, aprender y enseñar</title>
+  <title>Facundo Goette · Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO -->
-  <meta name="description" content="Facundo Goette: walking tours, reflexiones en video y clases prácticas con IA como copiloto. Todo lo importante a un clic." />
-  <link rel="canonical" href="https://facugoette8.github.io/" />
-
-  <!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Facundo Goette" />
-  <meta property="og:url" content="https://facugoette8.github.io/" />
-  <meta property="og:title" content="Facundo Goette · Caminar ciudades, aprender y enseñar" />
-  <meta property="og:description" content="Walking tours, reflexiones en video y clases prácticas con IA como copiloto." />
-  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Facundo Goette · Caminar ciudades, aprender y enseñar" />
-  <meta name="twitter:description" content="Walking tours, reflexiones en video y clases prácticas con IA como copiloto." />
-  <meta name="twitter:image" content="https://facugoette8.github.io/site-bg.jpg" />
-
+  <meta name="description" content="Facundo Goette: Walking Tours, Reflexiones y Cursos personalizados.">
   <link rel="stylesheet" href="styles.css" />
-
-  <style>
-    html, body { background: transparent !important; }
-
-    .page-bg,
-    .page-bg-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-    }
-
-    /* CUBRE TODA LA PANTALLA (sin bordes blancos) */
-    .page-bg {
-      z-index: -2;
-      background-repeat: no-repeat;
-      background-size: cover;             /* <- clave: cubre todo */
-      background-position: center 5%;     /* empieza un poco arriba */
-      background-color: #ffffff;
-
-      background-image: url("site-bg.jpg");
-      background-image: image-set(
-        url("site-bg.webp") type("image/webp") 1x,
-        url("site-bg@2x.webp") type("image/webp") 2x,
-        url("site-bg.jpg") type("image/jpeg") 1x,
-        url("site-bg@2x.jpg") type("image/jpeg") 2x
-      );
-
-      will-change: background-position;
-    }
-
-    /* Capa blanca suave encima para legibilidad */
-    .page-bg-overlay {
-      z-index: -1;
-      background: rgba(255, 255, 255, 0.30);
-    }
-
-    /* Glass */
-    .header {
-      background: rgba(255, 255, 255, 0.72) !important;
-      backdrop-filter: blur(12px);
-    }
-    .hero {
-      background: rgba(255, 255, 255, 0.68) !important;
-      backdrop-filter: blur(12px);
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.74) !important;
-      backdrop-filter: blur(10px);
-    }
-    .section--soft {
-      background: rgba(249, 250, 251, 0.52) !important;
-      backdrop-filter: blur(10px);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .page-bg { will-change: auto; }
-    }
-  </style>
 </head>
-
 <body>
-  <div class="page-bg" aria-hidden="true"></div>
-  <div class="page-bg-overlay" aria-hidden="true"></div>
-
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -108,9 +27,11 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero__badge">Proyecto vivo · Blog personal</div>
-      <h1 class="hero__title">Caminar ciudades; aprender y enseñar.</h1>
-      <p class="hero__lead">Walking tours, reflexiones en video y clases prácticas.</p>
+      <div class="hero__badge">Blog personal</div>
+      <h1 class="hero__title">Camina ciudades conmigo</h1>
+      <p class="hero__lead">
+        Walking Tours - Reflexiones - Cursos personalizados
+      </p>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="walking.html">🚶 Walking tours</a>
@@ -153,6 +74,7 @@
       </div>
     </section>
 
+    <!-- YOUTUBE: 2 videos fijos -->
     <section class="section section--soft">
       <div class="section__header">
         <h2 class="section__title">YouTube</h2>
@@ -162,14 +84,19 @@
       <div class="grid2">
         <article class="card">
           <h3 class="card__title">Emigrar: 3 años lejos de casa</h3>
+
           <div style="margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
-            <iframe width="100%" height="315"
+            <iframe
+              width="100%"
+              height="315"
               src="https://www.youtube.com/embed/dikCAOnpZBc"
               title="Emigrar: 3 años lejos de casa"
-              frameborder="0" loading="lazy"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              allowfullscreen>
+            </iframe>
           </div>
+
           <div class="card__actions">
             <a class="btn btn--primary" href="https://youtu.be/dikCAOnpZBc" target="_blank" rel="noopener">Abrir en YouTube</a>
             <a class="btn btn--ghost" href="streams.html">Ir a Reflexiones</a>
@@ -178,14 +105,19 @@
 
         <article class="card">
           <h3 class="card__title">MILAN 4K 🇮🇹 Walking Tour</h3>
+
           <div style="margin-top:.6rem; border-radius:12px; overflow:hidden; border:1px solid var(--border);">
-            <iframe width="100%" height="315"
+            <iframe
+              width="100%"
+              height="315"
               src="https://www.youtube.com/embed/5RtOo4CuIRo"
               title="MILAN 4K Walking Tour"
-              frameborder="0" loading="lazy"
+              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              allowfullscreen>
+            </iframe>
           </div>
+
           <div class="card__actions">
             <a class="btn btn--primary" href="https://youtu.be/5RtOo4CuIRo" target="_blank" rel="noopener">Abrir en YouTube</a>
             <a class="btn btn--ghost" href="walking.html">Ir a Walking</a>
@@ -205,44 +137,31 @@
       <div>© 2025 Facundo Goette</div>
       <div class="footer__links">
         <a class="link" href="contacto.html">Contacto</a>
+        <span class="dot">·</span>
       </div>
     </div>
   </footer>
 
-  <!-- Al scrollear, “recorre” la foto de arriba hacia abajo (sin bordes blancos) -->
-  <script>
-    (() => {
-      const bg = document.querySelector(".page-bg");
-      if (!bg) return;
+  <!-- Ajustes SOLO para esta página (no toco styles.css) -->
+  <style>
+    /* Nombre más grande en PC */
+    .brand__name{font-size:1.12rem;}
 
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (reduced) return;
-
-      const startY = 5;   // empieza un poco arriba
-      const endY = 95;    // termina mostrando el “pie” de la foto
-
-      let ticking = false;
-
-      const setPos = () => {
-        const doc = document.documentElement;
-        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
-        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
-        const y = startY + (endY - startY) * ratio;
-        bg.style.backgroundPosition = `center ${y}%`;
-        ticking = false;
-      };
-
-      const onScroll = () => {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(setPos);
-        }
-      };
-
-      setPos();
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", setPos);
-    })();
-  </script>
+    /* Mobile: nombre en 1 sola línea + un poco más a la derecha + tagline más grande */
+    @media (max-width: 720px){
+      .brand{max-width:72vw;}
+      .brand__name{
+        display:inline-block;
+        white-space:nowrap;
+        font-size:1.15rem;
+        line-height:1.1;
+        letter-spacing:.01em;
+      }
+      .brand__tagline{
+        font-size:.92rem;
+      }
+    }
+  </style>
 </body>
 </html>
+
