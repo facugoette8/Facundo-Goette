@@ -13,15 +13,27 @@
     body{margin:0;font-family:var(--font);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
 
-    /* Fondo full-bleed (sin bordes blancos) */
+    /* Fondo: 2 capas -> (1) rellena pantalla, (2) muestra imagen completa encima */
     .page-bg,.page-bg-overlay{position:fixed;inset:0;pointer-events:none}
     .page-bg{
       z-index:-2;
-      background:#fff no-repeat center 10% / cover;
-      will-change:background-position;
+      --y:10%;
+    }
+    .page-bg::before{
+      content:"";
+      position:absolute; inset:0;
+      background:#fff no-repeat center var(--y) / cover;   /* llena toda la pantalla */
+      background-image:url("../assets/cuentos/zigzwang.jpg"); /* si tu archivo tiene (1), cambiá SOLO esta línea */
+      filter: blur(18px);
+      transform: scale(1.08);
+    }
+    .page-bg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:transparent no-repeat center var(--y) / contain; /* se ve completa */
       background-image:url("../assets/cuentos/zigzwang.jpg"); /* si tu archivo tiene (1), cambiá SOLO esta línea */
     }
-    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.44)}
+    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.25)}
 
     .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
     .header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);
@@ -95,16 +107,21 @@
       const bg = document.querySelector(".page-bg");
       if (!bg) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
       const startY = 10, endY = 90;
       let ticking = false;
+
       const setPos = () => {
         const doc = document.documentElement;
         const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
         const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
         const y = startY + (endY - startY) * ratio;
-        bg.style.backgroundPosition = `center ${y}%`;
+
+        /* en vez de backgroundPosition, movemos la variable usada por ::before y ::after */
+        bg.style.setProperty("--y", `${y}%`);
         ticking = false;
       };
+
       const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(setPos); } };
       setPos();
       window.addEventListener("scroll", onScroll, { passive: true });
@@ -113,3 +130,4 @@
   </script>
 </body>
 </html>
+
