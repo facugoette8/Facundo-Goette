@@ -2,40 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Reflexiones · Facundo Goette</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Reflexiones de Facundo Goette: cuentos y escrituras propias + podcast (próximamente).">
-
-  <meta property="og:title" content="Reflexiones · Facundo Goette" />
-  <meta property="og:description" content="Cuentos y escrituras propias + podcast (próximamente)." />
-  <meta property="og:image" content="https://facugoette8.github.io/site-bg.jpg" />
-
-  <link rel="stylesheet" href="styles.css" />
-
+  <title>Zigzwang · Facundo Goette</title>
+  <meta name="description" content="Zigzwang. Un cuento breve: ajedrez como crítica a un sistema donde unas piezas se empujan para el beneficio de otras.">
+  <link rel="stylesheet" href="../styles.css" />
   <style>
-    :root{
-      --bg:#ffffff;
-      --border:#e5e7eb;
-      --text:#111827;
-      --muted:#6b7280;
-      --accent:#111827;
-      --radius:16px;
-      --max:960px;
-      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    }
+    :root{--border:#e5e7eb;--text:#111827;--muted:#6b7280;--radius:16px;--max:860px;
+      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
     *{box-sizing:border-box}
-    body{margin:0;font-family:var(--font);color:var(--text);background:transparent;-webkit-font-smoothing:antialiased}
+    body{margin:0;font-family:var(--font);color:var(--text);background:#fff;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
 
-    .header{
-      position:sticky;top:0;z-index:20;
-      border-bottom:1px solid var(--border);
-      background:rgba(255,255,255,.72);
-      backdrop-filter:blur(12px);
+    /* Fondo full-bleed (sin bordes blancos) */
+    .page-bg,.page-bg-overlay{position:fixed;inset:0;pointer-events:none}
+    .page-bg{
+      z-index:-2;
+      background:#fff no-repeat center 10% / cover;
+      will-change:background-position;
+      background-image:url("../assets/cuentos/zigzwang.jpg"); /* si tu archivo tiene (1), cambiá SOLO esta línea */
     }
+    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.44)}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
+    .header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.82);backdrop-filter:blur(10px)}
     .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
-    .brand__name{font-weight:700;letter-spacing:.01em}
+    .brand__name{font-weight:700}
     .brand__tagline{font-size:.85rem;color:var(--muted);margin-top:.15rem}
     .nav{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
     .nav__link{font-size:.9rem;color:var(--muted);padding:.35rem .6rem;border-radius:999px;border:1px solid transparent}
@@ -43,95 +35,20 @@
     .nav__link--active{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
     @media (max-width:720px){.nav{display:none}}
 
-    .hero{
-      padding:1rem;margin:1.25rem 0;border:1px solid var(--border);
-      border-radius:var(--radius);background:rgba(255,255,255,.78);
-      backdrop-filter:blur(10px)
-    }
-    .hero__title{margin:.1rem 0 .4rem;font-size:1.55rem;line-height:1.15}
-    .hero__lead{margin:0;color:#374151;line-height:1.55}
-    .hero__actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem}
-    .btn{
-      display:inline-flex;align-items:center;gap:.4rem;
-      padding:.46rem .8rem;border-radius:999px;
-      border:1px solid var(--border);background:#fff;
-      font-size:.88rem;cursor:pointer
-    }
-    .btn--primary{background:var(--accent);border-color:var(--accent);color:#fff}
-    .btn--ghost{background:transparent}
-
-    .section{margin:1.6rem 0}
-    .section__header{margin-bottom:.75rem}
-    .section__title{margin:0 0 .15rem;font-size:1.1rem}
-
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-    @media (max-width:1000px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:720px){.grid3{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.78);
-      backdrop-filter:blur(10px);
-      padding:.85rem;
-    }
-    .card__title{margin:0 0 .35rem;font-size:1rem}
-    .card__text{margin:0;color:#374151;line-height:1.55}
-    .card__actions{margin-top:.75rem;display:flex;gap:.6rem;flex-wrap:wrap}
-
-    .footer{margin-top:2rem;border-top:1px solid var(--border);background:rgba(255,255,255,.72);backdrop-filter:blur(10px)}
-    .footer__inner{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1rem 0;color:var(--muted);font-size:.85rem}
-    .dot{opacity:.6}
-
-    /* Fondo global */
-    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
-    .page-bg{
-      z-index:-2;
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center 5%;
-      background-color:#ffffff;
-      background-image:url("site-bg.jpg");
-      background-image:image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
-      will-change: background-position;
-    }
-    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.34);}
-
-    /* Cuentos */
-    .story-card{
-      padding:0;overflow:hidden;display:flex;flex-direction:column;
-      text-decoration:none;color:inherit;
-      transition:transform .12s ease, box-shadow .12s ease;
-    }
-    .story-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.08)}
-    .story-cover{
-      height:150px;
-      background: linear-gradient(120deg, rgba(0,0,0,.08), rgba(0,0,0,0)),
-                  var(--cover, linear-gradient(120deg, rgba(17,24,39,.14), rgba(0,0,0,0)));
-      background-size:cover;
-      background-position:center;
-      border-bottom:1px solid var(--border);
-    }
-    .story-body{padding:.85rem}
-    .pill{
-      font-size:.75rem;padding:.22rem .55rem;border-radius:999px;
-      border:1px solid var(--border);background:rgba(255,255,255,.60);color:var(--muted);
-    }
-    .story-meta{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin-top:.55rem}
-
-    /* Podcast */
-    .video-wrap{
-      margin-top:.65rem;border-radius:14px;overflow:hidden;border:1px solid var(--border);
-      background:rgba(255,255,255,.55);position:relative;width:100%;padding-top:56.25%;
-    }
-    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
-    .note{
-      margin-top:.65rem;padding:.7rem .85rem;border-radius:14px;border:1px dashed var(--border);
-      background:rgba(255,255,255,.62);color:#374151;line-height:1.55;font-size:.9rem;
-    }
+    .card{margin:1.25rem 0;border:1px solid var(--border);border-radius:var(--radius);
+      background:rgba(255,255,255,.86);backdrop-filter:blur(10px);padding:1rem}
+    h1{margin:.1rem 0 .25rem;font-size:1.65rem;line-height:1.15}
+    .meta{color:var(--muted);font-size:.92rem;display:flex;gap:.6rem;flex-wrap:wrap;margin:.35rem 0 1rem}
+    .content{line-height:1.75;font-size:1rem}
+    .content p{margin:0 0 1rem}
+    .note{margin-top:1rem;padding:.8rem .9rem;border-radius:14px;border:1px dashed var(--border);
+      background:rgba(255,255,255,.62);color:#374151;line-height:1.6;font-size:.92rem}
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{display:inline-flex;align-items:center;padding:.46rem .8rem;border-radius:999px;border:1px solid var(--border);
+      background:#fff;font-size:.88rem}
+    .btn--primary{background:#111827;border-color:#111827;color:#fff}
   </style>
 </head>
-
 <body>
   <div class="page-bg" aria-hidden="true"></div>
   <div class="page-bg-overlay" aria-hidden="true"></div>
@@ -139,96 +56,47 @@
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
-        <a class="brand__name" href="index.html">Facundo Goette</a>
+        <a class="brand__name" href="../index.html">Facundo Goette</a>
         <div class="brand__tagline">El mundo como nunca lo viste</div>
       </div>
       <nav class="nav">
-        <a class="nav__link" href="index.html">Inicio</a>
-        <a class="nav__link" href="walking.html">Walking tours</a>
-        <a class="nav__link nav__link--active" href="streams.html">Reflexiones</a>
-        <a class="nav__link" href="clases.html">Clases</a>
-        <a class="nav__link" href="contacto.html">Contacto</a>
+        <a class="nav__link" href="../index.html">Inicio</a>
+        <a class="nav__link" href="../walking.html">Walking tours</a>
+        <a class="nav__link nav__link--active" href="../streams.html">Reflexiones</a>
+        <a class="nav__link" href="../clases.html">Clases</a>
+        <a class="nav__link" href="../contacto.html">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1 class="hero__title">Reflexiones</h1>
-      <p class="hero__lead">Cuentos y escrituras propias, más un podcast (próximamente).</p>
-      <div class="hero__actions">
-        <a class="btn btn--primary" href="#cuentos">📖 Cuentos</a>
-        <a class="btn" href="#podcast">🎙️ Podcast</a>
-        <a class="btn btn--ghost" href="contacto.html">Contacto</a>
-      </div>
-    </section>
+    <article class="card">
+      <h1>Zigzwang</h1>
+      <div class="meta"><span>Cuento</span><span>·</span><span>@facugoette8</span></div>
 
-    <section id="cuentos" class="section">
-      <div class="section__header">
-        <h2 class="section__title">Cuentos y escrituras</h2>
+      <div class="content">
+        <p>Bajo la sombra del rey el peón avanza dos pasos, abriendo camino al alfil.</p>
+        <p>Un viento frío trae jinetes, la torre enroca y la reina cuida el nido; mientras los pequeños van al frente por un tablero de noches y días, donde el destino se divierte con los hombres como piezas de ajedrez.</p>
       </div>
 
-      <div class="grid3">
-        <a class="card story-card" href="cuentos/esa-loma.html" style="--cover:url('assets/cuentos/esa-loma.jpg');">
-          <div class="story-cover"></div>
-          <div class="story-body">
-            <h3 class="card__title">Esa loma</h3>
-            <p class="card__text">Un viaje de verano hacia Mar del Plata, con mate, juegos y la Avenida Colón como umbral del mar.</p>
-            <div class="story-meta"><span class="pill">Cuento</span></div>
-          </div>
-        </a>
-
-        <a class="card story-card" href="cuentos/zigzwang.html" style="--cover:url('assets/cuentos/zigzwang.jpg');">
-          <div class="story-cover"></div>
-          <div class="story-body">
-            <h3 class="card__title">Zigzwang</h3>
-            <p class="card__text">Ajedrez como metáfora: piezas empujadas a moverse por el beneficio de otras.</p>
-            <div class="story-meta"><span class="pill">Cuento breve</span></div>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section id="podcast" class="section">
-      <div class="section__header">
-        <h2 class="section__title">Podcast</h2>
+      <div class="note">
+        Este es un cuento que muestra una jugada de ajedrez para criticar un sistema donde una pieza es empujada a movimientos para el beneficio de otras.
       </div>
 
-      <article class="card">
-        <div class="card__actions">
-          <a class="btn btn--primary" id="btnPodcastYT" href="#" target="_blank" rel="noopener" style="display:none;">Ver playlist</a>
-          <a class="btn btn--ghost" href="https://www.youtube.com/@facugoette8?sub_confirmation=1" target="_blank" rel="noopener">Suscribirme</a>
-        </div>
-
-        <div id="podcastEmbed" class="video-wrap" style="display:none;">
-          <iframe id="podcastIframe" loading="lazy" src="" title="Podcast · Playlist"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-
-        <div id="podcastComing" class="note">
-          Playlist del podcast: <strong>próximamente</strong>.
-        </div>
-      </article>
-    </section>
+      <div class="actions">
+        <a class="btn btn--primary" href="../streams.html">Volver a Reflexiones</a>
+        <a class="btn" href="../contacto.html">Contacto</a>
+      </div>
+    </article>
   </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>© 2025 Facundo Goette</div>
-      <div><a href="index.html">Inicio</a> <span class="dot">·</span> <a href="streams.html">Reflexiones</a></div>
-    </div>
-  </footer>
 
   <script>
     (() => {
       const bg = document.querySelector(".page-bg");
       if (!bg) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      const startY = 5, endY = 95;
+      const startY = 10, endY = 90;
       let ticking = false;
-
       const setPos = () => {
         const doc = document.documentElement;
         const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
@@ -237,36 +105,10 @@
         bg.style.backgroundPosition = `center ${y}%`;
         ticking = false;
       };
-
-      const onScroll = () => {
-        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
-      };
-
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(setPos); } };
       setPos();
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", setPos);
-    })();
-  </script>
-
-  <script>
-    (() => {
-      const PODCAST_PLAYLIST_ID = "PEGAR_ID_AQUI";
-
-      const coming = document.getElementById("podcastComing");
-      const wrap = document.getElementById("podcastEmbed");
-      const iframe = document.getElementById("podcastIframe");
-      const btn = document.getElementById("btnPodcastYT");
-
-      const looksEmpty = !PODCAST_PLAYLIST_ID || PODCAST_PLAYLIST_ID.includes("PEGAR");
-      if (looksEmpty) return;
-
-      const ytListUrl = `https://www.youtube.com/playlist?list=${PODCAST_PLAYLIST_ID}`;
-      iframe.src = `https://www.youtube.com/embed/videoseries?list=${PODCAST_PLAYLIST_ID}`;
-
-      btn.href = ytListUrl;
-      btn.style.display = "";
-      wrap.style.display = "";
-      coming.style.display = "none";
     })();
   </script>
 </body>
