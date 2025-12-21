@@ -6,8 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Facundo Goette: Walking Tours, Reflexiones y Cursos personalizados.">
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Fondo como antes (parallax detrás de todo) */
+    .page-bg, .page-bg-overlay { position: fixed; inset: 0; z-index: -2; pointer-events: none; }
+    .page-bg{
+      z-index:-2;
+      background-repeat:no-repeat;
+      background-size:cover;
+      background-position:center 5%;
+      background-color:#ffffff;
+      background-image:url("site-bg.jpg");
+      background-image:image-set(url("site-bg@2x.jpg") 2x, url("site-bg.jpg") 1x);
+      will-change: background-position;
+    }
+    .page-bg-overlay{ z-index:-1; background: rgba(255,255,255,.34); }
+
+    /* SOLO lo que pediste: marca más grande + mobile en 1 línea + tagline más legible */
+    .brand{ display:flex; flex-direction:column; flex: 1; min-width: 240px; }
+    .brand__name{ font-size: 1.18rem; font-weight: 700; white-space: nowrap; }
+    .brand__tagline{ font-size: .92rem; }
+
+    @media (max-width: 720px){
+      .brand{ min-width: 0; max-width: 78vw; }
+      .brand__name{
+        font-size: 1.22rem;
+        white-space: nowrap;
+        word-break: keep-all;
+        line-height: 1.1;
+      }
+      .brand__tagline{ font-size: .95rem; }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -19,7 +55,7 @@
         <a class="nav__link nav__link--active" href="index.html">Inicio</a>
         <a class="nav__link" href="walking.html">Walking tours</a>
         <a class="nav__link" href="streams.html">Reflexiones</a>
-        <a class="nav__link" href="clases.html">Clases</a>
+        <a class="nav__link" href="clases.html">Cursos</a>
         <a class="nav__link" href="contacto.html">Contacto</a>
       </nav>
     </div>
@@ -29,14 +65,12 @@
     <section class="hero">
       <div class="hero__badge">Blog personal</div>
       <h1 class="hero__title">Camina ciudades conmigo</h1>
-      <p class="hero__lead">
-        Walking Tours - Reflexiones - Cursos personalizados
-      </p>
+      <p class="hero__lead">Walking Tours - Reflexiones - Cursos personalizados</p>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="walking.html">🚶 Walking tours</a>
         <a class="btn" href="streams.html">🎙️ Reflexiones</a>
-        <a class="btn" href="clases.html">📚 Ver Clases</a>
+        <a class="btn" href="clases.html">📚 Ver Cursos</a>
         <a class="btn btn--ghost" href="contacto.html">📩 Contacto</a>
       </div>
     </section>
@@ -64,11 +98,11 @@
         </article>
 
         <article class="card">
-          <h3 class="card__title">📚 Clases</h3>
+          <h3 class="card__title">📚 Cursos</h3>
           <p class="card__text">Sesiones prácticas (datos, herramientas, productividad) usando IA como copiloto.</p>
           <div class="card__meta">Salís con un entregable, no con teoría.</div>
           <div class="card__actions">
-            <a class="btn btn--primary" href="clases.html">Ver clases</a>
+            <a class="btn btn--primary" href="clases.html">Ver cursos</a>
           </div>
         </article>
       </div>
@@ -137,31 +171,33 @@
       <div>© 2025 Facundo Goette</div>
       <div class="footer__links">
         <a class="link" href="contacto.html">Contacto</a>
-        <span class="dot">·</span>
       </div>
     </div>
   </footer>
 
-  <!-- Ajustes SOLO para esta página (no toco styles.css) -->
-  <style>
-    /* Nombre más grande en PC */
-    .brand__name{font-size:1.12rem;}
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    /* Mobile: nombre en 1 sola línea + un poco más a la derecha + tagline más grande */
-    @media (max-width: 720px){
-      .brand{max-width:72vw;}
-      .brand__name{
-        display:inline-block;
-        white-space:nowrap;
-        font-size:1.15rem;
-        line-height:1.1;
-        letter-spacing:.01em;
-      }
-      .brand__tagline{
-        font-size:.92rem;
-      }
-    }
-  </style>
+      const startY = 5, endY = 95;
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(setPos); } };
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+    })();
+  </script>
 </body>
 </html>
-
