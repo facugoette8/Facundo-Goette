@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zigzwang · Facundo Goette</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Zigzwang. Un cuento breve: ajedrez como crítica a un sistema donde unas piezas se empujan para el beneficio de otras.">
+
+  <link rel="stylesheet" href="../styles.css" />
+
+  <style>
+    :root{
+      --border:#e5e7eb;--text:#111827;--muted:#6b7280;--radius:16px;--max:860px;
+      --font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--font);color:var(--text);background:transparent;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+
+    /* Foto: SOLO fondo (parallax) */
+    .page-bg,.page-bg-overlay{position:fixed;inset:0;z-index:-2;pointer-events:none}
+    .page-bg{
+      background-size:cover;
+      background-position:center 0%;
+      background-repeat:no-repeat;
+      background-color:#fff;
+      background-image:image-set(
+        url("../assets/cuentos/zigzwang.webp") type("image/webp") 1x,
+        url("../assets/cuentos/zigzwang@2x.webp") type("image/webp") 2x,
+        url("../assets/cuentos/zigzwang.jpg") type("image/jpeg") 1x,
+        url("../assets/cuentos/zigzwang@2x.jpg") type("image/jpeg") 2x
+      );
+      will-change:background-position;
+    }
+    .page-bg-overlay{z-index:-1;background:rgba(255,255,255,.44)}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 1rem}
+
+    .header{
+      position:sticky;top:0;z-index:20;
+      border-bottom:1px solid var(--border);
+      background:rgba(255,255,255,.72);
+      backdrop-filter:blur(12px);
+    }
+    .header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0}
+    .brand__name{font-weight:700;letter-spacing:.01em}
+    .brand__tagline{font-size:.85rem;color:var(--muted);margin-top:.15rem}
+    .nav{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+    .nav__link{font-size:.9rem;color:var(--muted);padding:.35rem .6rem;border-radius:999px;border:1px solid transparent}
+    .nav__link:hover{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    .nav__link--active{color:var(--text);border-color:var(--border);background:rgba(255,255,255,.7)}
+    @media (max-width:720px){.nav{display:none}}
+
+    .card{
+      margin:1.25rem 0;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(10px);
+      padding:1rem;
+    }
+
+    h1{margin:.1rem 0 .25rem;font-size:1.65rem;line-height:1.15}
+    .meta{color:var(--muted);font-size:.92rem;display:flex;gap:.6rem;flex-wrap:wrap;margin:.35rem 0 1rem}
+
+    .content{line-height:1.75;font-size:1rem;color:#111827}
+    .content p{margin:0 0 1rem}
+
+    .note{
+      margin-top:1rem;
+      padding:.8rem .9rem;
+      border-radius:14px;
+      border:1px dashed var(--border);
+      background:rgba(255,255,255,.62);
+      color:#374151;
+      line-height:1.6;
+      font-size:.92rem;
+    }
+
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem}
+    .btn{display:inline-flex;align-items:center;padding:.46rem .8rem;border-radius:999px;border:1px solid var(--border);background:#fff;font-size:.88rem}
+    .btn--primary{background:#111827;border-color:#111827;color:#fff}
+    .btn--ghost{background:transparent}
+  </style>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="page-bg-overlay" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <a class="brand__name" href="../index.html">Facundo Goette</a>
+        <div class="brand__tagline">El mundo como nunca lo viste</div>
+      </div>
+      <nav class="nav">
+        <a class="nav__link" href="../index.html">Inicio</a>
+        <a class="nav__link" href="../walking.html">Walking tours</a>
+        <a class="nav__link nav__link--active" href="../streams.html">Reflexiones</a>
+        <a class="nav__link" href="../clases.html">Clases</a>
+        <a class="nav__link" href="../contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Zigzwang</h1>
+      <div class="meta"><span>Cuento</span><span>·</span><span>@facugoette8</span></div>
+
+      <div class="content">
+        <p>Bajo la sombra del rey el peón avanza dos pasos, abriendo camino al alfil.</p>
+        <p>Un viento frío trae jinetes, la torre enroca y la reina cuida el nido; mientras los pequeños van al frente por un tablero de noches y días, donde el destino se divierte con los hombres como piezas de ajedrez.</p>
+      </div>
+
+      <div class="note">
+        Este es un cuento que muestra una jugada de ajedrez para criticar un sistema donde una pieza es empujada a movimientos para el beneficio de otras.
+      </div>
+
+      <div class="actions">
+        <a class="btn btn--primary" href="../streams.html">Volver a Reflexiones</a>
+        <a class="btn btn--ghost" href="../contacto.html">Contacto</a>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    (() => {
+      const bg = document.querySelector(".page-bg");
+      if (!bg) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const startY = 0, endY = 100;
+      let ticking = false;
+
+      const setPos = () => {
+        const doc = document.documentElement;
+        const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+        const ratio = Math.min(1, Math.max(0, (window.scrollY || 0) / maxScroll));
+        const y = startY + (endY - startY) * ratio;
+        bg.style.backgroundPosition = `center ${y}%`;
+        ticking = false;
+      };
+
+      const onScroll = () => {
+        if (!ticking) { ticking = true; requestAnimationFrame(setPos); }
+      };
+
+      setPos();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", setPos);
+      setTimeout(setPos, 800);
+      setTimeout(setPos, 1800);
+    })();
+  </script>
+</body>
+</html>
